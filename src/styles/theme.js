@@ -34,11 +34,16 @@ const lineHeights = [1, 1.2, 1.5];
 let theme = {
     colors,
 
+    color: {
+        primary: colors.amber[400],
+        secondary: colors.gray[200]
+    },
+
     fontSizes,
 
     fontColor: {
         primary: colors.white[900],
-        secondary: colors.gray[300]
+        secondary: colors.gray[400]
     },
 
     fontWeight: {
