@@ -17,6 +17,20 @@ const colors = {
         900: "#fffffa"
     },
 
+    green: {
+        400: "#4ade80",
+        100: "#dcfce7"
+    },
+
+    red: {
+        400: "#f87171",
+    },
+
+    rose: {
+        400: "#fb7185",
+        100: "#ffe4e6"
+    },
+
     bg: {
         'light-primary': '#E5E7EB',
         'light-secondary': '#D1D5DB',
