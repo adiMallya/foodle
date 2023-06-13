@@ -36,10 +36,12 @@ const variants = {
 
     icon: css`
         background-color: transparent;
-        &:hover {
-            background: ${({ theme }) => theme.bgColor.secondary};
-            border-radius: 9999px;
-        }
+        ${(p) => p.hoverIcon && css`
+            &:hover {
+                background: ${p.hoverIcon};
+                border-radius: 9999px;
+            }
+        `}
     `,
 
     default: css`
