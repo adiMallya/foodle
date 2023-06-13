@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 import { FLEX } from "styles";
 
-export const FlexContainer = (
+export const FlexContainer = ({
     w = '100vw',
     h = '100vh',
     m = 0,
@@ -11,8 +11,8 @@ export const FlexContainer = (
     align = null,
     justify = null,
     direction = null,
-    wrap = null,
-) => styled.div`
+    wrap = null
+}) => styled.div`
     width: ${w};
     height: ${h};
     margin: ${m}rem;
