@@ -27,11 +27,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
     margin: 0.625rem 0;
     line-height: ${({ theme }) => theme.lineHeight.title};
-    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+    font-weight: ${({ theme }) => theme.font.semibold};
 }
 
 p {
-    font-size: ${({ theme }) => theme.fontSizes[0]}
+    font-size: ${({ theme }) => theme.font.sm};
     margin: 0.25rem 0;
     line-height: ${({ theme }) => theme.lineHeight.para};
 }

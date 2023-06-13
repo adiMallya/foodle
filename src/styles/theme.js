@@ -25,7 +25,7 @@ const colors = {
     }
 }
 
-const fontSizes = ['1rem', '1.15rem', '1.25rem', '1.5rem', '1.75rem', '2rem'];
+const fontSizes = ['0.85rem', '1rem', '1.15rem', '1.25rem', '1.5rem', '1.75rem', '2rem'];
 
 const fontWeights = [200, 300, 500, 600, 700, 800];
 
@@ -41,12 +41,13 @@ let theme = {
 
     fontSizes,
 
-    fontColor: {
+    font: {
+        xs: fontSizes[0],
+        sm: fontSizes[1],
+        md: fontSizes[3],
+        lg: fontSizes[5],
         primary: colors.white[900],
-        secondary: colors.gray[400]
-    },
-
-    fontWeight: {
+        secondary: colors.gray[400],
         normal: fontWeights[1],
         semibold: fontWeights[3],
         bold: fontWeights[5]

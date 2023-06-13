@@ -20,12 +20,12 @@ const size = {
 
 const variants = {
     primaryOutline: css`
-        color: ${({ theme }) => theme.fontColor.primary};
+        color: ${({ theme }) => theme.font.primary};
         border: 1px solid ${({ theme }) => theme.color.primary};
     `,
 
     secondarySolid: css`
-        color: ${({ theme }) => theme.fontColor.secondary};
+        color: ${({ theme }) => theme.font.secondary};
         background-color: ${({ theme }) => theme.color.secondary};
     `,
 
@@ -43,7 +43,7 @@ const variants = {
     `,
 
     default: css`
-        color: ${({ theme }) => theme.fontColor.primary};
+        color: ${({ theme }) => theme.font.primary};
         background-color: ${({ theme }) => theme.color.primary};
     `
 }
@@ -58,7 +58,7 @@ export const Button = styled.button`
     border: none;
     text-decoration: none;
     text-align: center;
-    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+    font-weight: ${({ theme }) => theme.font.semibold};
     outline: none;
     opacity: 0.9;
     cursor: pointer;
