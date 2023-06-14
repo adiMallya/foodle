@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-import { FLEX } from "styles";
+import { FLEX } from "src/styles";
 
 export const FlexContainer = ({
     w = '100vw',
