@@ -7,7 +7,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <h1>Twizzle - &quot;Create, Engage, Twizzle&quot;</h1>
       <Routes>
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
