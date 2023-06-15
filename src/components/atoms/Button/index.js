@@ -16,7 +16,7 @@ const size = {
         padding: 0.5rem 1rem;
         font-size: 1em;
     `
-}
+};
 
 const variants = {
     primaryOutline: css`
@@ -48,7 +48,7 @@ const variants = {
         color: ${({ theme }) => theme.font.primary};
         background-color: ${({ theme }) => theme.color.primary};
     `
-}
+};
 
 const getSize = (p) => size[p.size] || size.default;
 const getVariant = (p) => variants[p.variant] || variants.default;
@@ -58,6 +58,8 @@ export const Button = styled.button`
     height: fit-content;
     background-color: transparent;
     border: none;
+    margin: ${({ m }) => `${m}rem` || 0};
+    padding: 0.5rem 1rem;
     text-decoration: none;
     text-align: center;
     font-weight: ${({ theme }) => theme.font.semibold};

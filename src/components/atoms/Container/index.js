@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled, css } from "styled-components";
 
 import { FLEX } from "src/styles";
 
@@ -9,4 +9,5 @@ export const FlexContainer = styled.div`
     padding: ${({ p }) => p || 0}rem;
     background-color: ${({ bg, theme }) => bg || theme.bgColor.secondary};
     ${({ align, justify, direction, wrap }) => FLEX(align, justify, direction, wrap)}
+    ${({ gap }) => gap && css`gap: ${gap};`}
 `;
