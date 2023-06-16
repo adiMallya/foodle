@@ -4,6 +4,9 @@ const GlobalStyles = createGlobalStyle`
 *,
 *::before,
 *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
     box-sizing: border-box;
 }
 
@@ -12,8 +15,6 @@ html:focus-within {
 }
 
 body {
-    margin: 0;
-    padding: 0;
     overflow-x: hidden;
     min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
