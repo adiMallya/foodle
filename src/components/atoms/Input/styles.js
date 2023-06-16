@@ -32,6 +32,7 @@ const BaseInput = styled.input`
   letter-spacing: 0.0125rem;
   border: 0;
   border-radius: 0.3rem;
+  font-size: ${({ theme }) => theme.font.sm};
   color: ${({ theme }) => theme.font.secondary};
   background-color: transparent;
 

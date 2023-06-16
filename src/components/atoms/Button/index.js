@@ -84,7 +84,7 @@ export const Button = styled.button`
 
     ${(p) => getVariant(p)}
 
-    ${(p) => p.fullWidth && css`
+    ${(p) => p.fullwidth && css`
         width: 100%;
     `}
 
