@@ -16,7 +16,7 @@ const authReducer = (state, { type, payload }) => {
                 isLoading: false
             };
         case ACTIONS.SET_USER:
-            localStorage.setItem("authUser", payload);
+            localStorage.setItem("authUser", JSON.stringify(payload));
             return {
                 ...state,
                 authUser: payload,
