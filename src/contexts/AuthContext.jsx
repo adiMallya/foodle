@@ -4,7 +4,7 @@ import { initialAuthState, authReducer } from "src/features/auth";
 const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(initialAuthState, authReducer);
+  const [state, dispatch] = useReducer(authReducer, initialAuthState);
   return (
     <AuthContext.Provider value={{ ...state, authDispatch: dispatch }}>
       {children}
