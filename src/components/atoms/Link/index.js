@@ -13,4 +13,4 @@ export const BaseLink = styled(Link)`
             border-radius: '9999px';
         }
     `}
-`
+`;

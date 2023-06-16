@@ -1,9 +1,9 @@
-import { styled, css } from "styled-components";
+import { styled } from "styled-components";
 
 import { FLEX } from "src/styles";
 
 const RowWrapper = styled.div`
-    ${FLEX("wrap")}
+    ${FLEX()}
 `;
 
 const RowCenter = styled(RowWrapper)`
@@ -11,11 +11,11 @@ const RowCenter = styled(RowWrapper)`
 `;
 
 const ColumnWrapper = styled.div`
-    ${FLEX("column")}
+    ${FLEX("flex", null, null, "column")}
 `;
 
-const ColumnCenter = styled(ColumnWrapper)`
-    ${FLEX("center", "center", "column")}
+const ColumnCenter = styled.div`
+    ${FLEX("flex", "center", "center", "column")}
 `;
 
 export { RowWrapper, RowCenter, ColumnWrapper, ColumnCenter };
