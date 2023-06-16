@@ -2,12 +2,20 @@ import { styled, css } from "styled-components";
 
 import { FLEX } from "src/styles";
 
-export const FlexContainer = styled.div`
-    width: ${({ w }) => w || 100}vw;
-    height: ${({ h }) => h || 100}vh;
-    margin: ${({ m }) => m || 0}rem;
-    padding: ${({ p }) => p || 0}rem;
-    background-color: ${({ bg, theme }) => bg || theme.bgColor.secondary};
-    ${({ align, justify, direction, wrap }) => FLEX(align, justify, direction, wrap)}
-    ${({ gap }) => gap && css`gap: ${gap};`}
+const RowWrapper = styled.div`
+    ${FLEX("wrap")}
 `;
+
+const RowCenter = styled(RowWrapper)`
+    ${FLEX("center")}
+`;
+
+const ColumnWrapper = styled.div`
+    ${FLEX("column")}
+`;
+
+const ColumnCenter = styled(ColumnWrapper)`
+    ${FLEX("center", "center", "column")}
+`;
+
+export { RowWrapper, RowCenter, ColumnWrapper, ColumnCenter };
