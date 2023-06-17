@@ -54,6 +54,7 @@ const Input = ({
       {showVisibility ? (
         <S.BaseInputPasswordVisibility>
           <Button
+            type="button"
             variant="icon"
             onClick={() => setShowPassword((prev) => !prev)}
           >
