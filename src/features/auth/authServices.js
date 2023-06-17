@@ -34,7 +34,7 @@ const signUpService = async (formData, authDispatch) => {
             website: "",
             profileAvatar: "",
         });
-        if (status === 200) {
+        if (status === 201) {
             authDispatch({ type: ACTIONS.SET_JWT_TOKEN, payload: encodedToken });
             authDispatch({ type: ACTIONS.SET_USER, payload: createdUser });
             toast.success(`Hi, ${createdUser.firstName}!`, {
