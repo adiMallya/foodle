@@ -7,7 +7,7 @@ const Input = ({
   type = "text",
   name,
   placeholder,
-  required = false,
+  required,
   isAutoFocus = false,
   isDisabled = false,
   defaultValue,
@@ -24,6 +24,7 @@ const Input = ({
   min,
   id,
   inputMode = "text",
+  showError = false,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -52,10 +53,20 @@ const Input = ({
       />
       {showVisibility ? (
         <S.BaseInputPasswordVisibility>
-          <Button variant="icon" onClick={() => setShowPassword(!showPassword)}>
-            <Icon icon={showPassword ? faEyeSlash : faEye} />
+          <Button
+            type="button"
+            variant="icon"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            <Icon
+              icon={showPassword ? faEye : faEyeSlash}
+              title={showPassword ? "Visible" : "Hidden"}
+            />
           </Button>
         </S.BaseInputPasswordVisibility>
+      ) : null}
+      {showError ? (
+        <S.BaseInputErrorMsg>{showError}</S.BaseInputErrorMsg>
       ) : null}
     </S.BaseInputContainer>
   );

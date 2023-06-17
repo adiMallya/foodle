@@ -1,5 +1,5 @@
 export { Button } from "./Button";
 export { BaseLink } from "./Link";
-export { FlexContainer } from "./Container";
+export { RowWrapper, RowCenter, ColumnWrapper, ColumnCenter } from "./Container";
 export { Icon } from "./Icon";
 export { Input } from "./Input";

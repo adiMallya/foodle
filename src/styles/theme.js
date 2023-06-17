@@ -37,7 +37,7 @@ const colors = {
         'dark-primary': '#1F2937',
         'dark-secondary': '#111827'
     }
-}
+};
 
 const fontSizes = ['0.85rem', '1rem', '1.15rem', '1.25rem', '1.5rem', '1.75rem', '2rem'];
 
@@ -45,12 +45,16 @@ const fontWeights = [200, 300, 500, 600, 700, 800];
 
 const lineHeights = [1, 1.2, 1.5];
 
+const radii = ["0.25rem", "0.5rem", "0.75rem", "1rem"];
+
 let theme = {
     colors,
 
     color: {
         primary: colors.amber[400],
-        secondary: colors.gray[200]
+        secondary: colors.gray[200],
+        success: colors.green[400],
+        error: colors.red[400]
     },
 
     fontSizes,
@@ -73,10 +77,17 @@ let theme = {
         para: lineHeights[2]
     },
 
+    border: {
+        rounded: radii[0],
+        roundedMd: radii[1],
+        roundedLg: radii[2],
+        roundedXl: radii[3],
+    },
+
     bgColor: {
         primary: colors.bg["dark-primary"],
         secondary: colors.bg["dark-secondary"]
     }
-}
+};
 
 export { theme };

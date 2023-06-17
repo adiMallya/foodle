@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const BaseLink = styled(Link)`
     text-decoration: none;
     color: ${(p) => css`
-        ${p.color ? p.color : p.theme.fontColor.primary}
+        ${p.color ? p.color : p.theme.font.primary}
     `};
 
     ${(p) => p.active && css`
@@ -13,4 +13,4 @@ export const BaseLink = styled(Link)`
             border-radius: '9999px';
         }
     `}
-`
+`;

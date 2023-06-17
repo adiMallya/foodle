@@ -4,6 +4,9 @@ const GlobalStyles = createGlobalStyle`
 *,
 *::before,
 *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
     box-sizing: border-box;
 }
 
@@ -12,21 +15,20 @@ html:focus-within {
 }
 
 body {
-    margin: 0;
-    padding: 0;
     overflow-x: hidden;
     min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, 
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: all 0.50s linear;
+    background-color: ${({ theme }) => theme.bgColor.primary};
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0.625rem 0;
+    margin: 0;
     line-height: ${({ theme }) => theme.lineHeight.title};
+    color: ${({ theme }) => theme.font.primary};
     font-weight: ${({ theme }) => theme.font.semibold};
 }
 
@@ -57,6 +59,10 @@ img {
     height: auto;
     width: 100%;
     display: block;
+}
+
+*::placeholder{
+    color: ${({ theme }) => theme.font.secondary};
 }
 `;
 
