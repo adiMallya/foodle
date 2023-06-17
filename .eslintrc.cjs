@@ -13,6 +13,7 @@ module.exports = {
     'react-refresh/only-export-components': 'warn',
     "react/prop-types": 0,
     "no-console": 0,
+    "no-unused-vars": 0,
     "semi": 1,
     "camelcase": 1,
     "max-len": [1, { "code": 120 }]
