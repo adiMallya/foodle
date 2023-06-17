@@ -34,6 +34,20 @@ const variants = {
         border: 1px solid ${({ theme }) => theme.color.secondary};
     `,
 
+    primaryLink: css`
+        padding: 0;
+        text-decoration: underline;
+        text-underline-position: under;
+        color: ${({ theme }) => theme.color.primary};
+    `,
+
+    secondaryLink: css`
+        padding: 0;
+        text-decoration: underline;
+        text-underline-position: under;
+        color: ${({ theme }) => theme.color.secondary};
+    `,
+
     icon: css`
         background-color: transparent;
         ${(p) => p.hoverIcon && css`
