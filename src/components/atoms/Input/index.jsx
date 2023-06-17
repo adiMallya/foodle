@@ -24,6 +24,7 @@ const Input = ({
   min,
   id,
   inputMode = "text",
+  showError = false,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -62,6 +63,9 @@ const Input = ({
             />
           </Button>
         </S.BaseInputPasswordVisibility>
+      ) : null}
+      {showError ? (
+        <S.BaseInputErrorMsg>{showError}</S.BaseInputErrorMsg>
       ) : null}
     </S.BaseInputContainer>
   );

@@ -52,11 +52,20 @@ const BaseInput = styled.input`
 const BaseInputPasswordVisibility = styled.div`
   position: absolute;
   bottom: 1rem;
-  right: 1.5rem;
+  right: 2rem;
   width: 1.25rem;
   height: 1.25rem;
   ${FLEX('center', 'center')};
   cursor: pointer;
 `;
 
-export { BaseInputContainer, BaseInputLabel, BaseInput, BaseInputPasswordVisibility };
+const BaseInputErrorMsg = styled.div`
+  position: absolute;
+  bottom: -20px;
+  left: 4px;
+  font-size: ${({ theme }) => theme.font.xs};
+  font-weight: ${({ theme }) => theme.font.normal};
+  color: ${({ theme }) => theme.color.error};
+`;
+
+export { BaseInputContainer, BaseInputLabel, BaseInput, BaseInputPasswordVisibility, BaseInputErrorMsg };
