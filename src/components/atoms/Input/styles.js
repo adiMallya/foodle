@@ -6,7 +6,6 @@ const BaseInputContainer = styled.div`
   height: 40px;
   border-radius: 4px;
   background-color: ${({ theme }) => theme.bgColor.secondary};
-  border: 1px solid ${({ theme }) => theme.colors.gray[500]};
 
   ${(p) => p.disabled && css`
     opacity: 0.5;
@@ -15,8 +14,8 @@ const BaseInputContainer = styled.div`
 
 const BaseInputLabel = styled.label`
   position: absolute;
-  top: -0.625px;
-  left: 0.25rem;
+  top: -30px;
+  left: 0;
   padding: 0 0.25rem;
   font-size: ${({ theme }) => theme.font.sm};
   color: ${({ theme }) => theme.font.primary};
@@ -32,14 +31,10 @@ const BaseInput = styled.input`
   letter-spacing: 0.0125rem;
   border: 0;
   border-radius: 0.3rem;
+  outline: 0;
   font-size: ${({ theme }) => theme.font.sm};
   color: ${({ theme }) => theme.font.secondary};
   background-color: transparent;
-
-  &:focus {
-    outline: 0;
-    border: 1px ${({ theme }) => theme.bgColor.primary};
-  };
 
   &::placeholder {
     opacity: 0.75;
