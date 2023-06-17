@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 import { ACTIONS, API_URL } from "src/utils";
 
@@ -13,10 +14,12 @@ const loginService = async (username, password, authDispatch) => {
         if (status === 200) {
             authDispatch({ type: ACTIONS.SET_JWT_TOKEN, payload: encodedToken });
             authDispatch({ type: ACTIONS.SET_USER, payload: foundUser });
+            toast.success(`Welcome back, ${foundUser.firstName}!`);
         }
 
     } catch (error) {
-        console.error(error);
+        toast.error('Incorrect username or password');
+        console.error(error.response.data);
     }
 };
 
@@ -31,9 +34,13 @@ const signUpService = async (formData, authDispatch) => {
         if (status === 200) {
             authDispatch({ type: ACTIONS.SET_JWT_TOKEN, payload: encodedToken });
             authDispatch({ type: ACTIONS.SET_USER, payload: createdUser });
+            toast.success(`Hi, ${createdUser.firstName}!`, {
+                icon: "👋",
+            });
         }
     } catch (error) {
-        console.error(error);
+        toast.error('Could not register! Please try again.');
+        console.error(error.response.data);
     }
 };
 
