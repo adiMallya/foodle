@@ -7,7 +7,7 @@ const Input = ({
   type = "text",
   name,
   placeholder,
-  required = false,
+  required,
   isAutoFocus = false,
   isDisabled = false,
   defaultValue,
@@ -52,8 +52,14 @@ const Input = ({
       />
       {showVisibility ? (
         <S.BaseInputPasswordVisibility>
-          <Button variant="icon" onClick={() => setShowPassword(!showPassword)}>
-            <Icon icon={showPassword ? faEyeSlash : faEye} />
+          <Button
+            variant="icon"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            <Icon
+              icon={showPassword ? faEye : faEyeSlash}
+              title={showPassword ? "Visible" : "Hidden"}
+            />
           </Button>
         </S.BaseInputPasswordVisibility>
       ) : null}
