@@ -1,5 +1,7 @@
 export const ACTIONS = {
     SET_JWT_TOKEN: "SET_JWT_TOKEN",
     SET_USER: "SET_USER",
-    LOG_OUT: "LOG_OUT"
+    LOG_OUT: "LOG_OUT",
+    SET_ERROR: "SET_ERROR",
+    RESET_ERROR: "RESET_ERROR"
 };

@@ -3,7 +3,8 @@ import { ACTIONS } from "src/utils";
 const initialAuthState = {
     authToken: localStorage.getItem("authToken") || null,
     authUser: JSON.parse(localStorage.getItem("authUser")) || {},
-    isLoading: true
+    isLoading: true,
+    error: {},
 };
 
 const authReducer = (state, { type, payload }) => {
@@ -29,7 +30,18 @@ const authReducer = (state, { type, payload }) => {
                 ...state,
                 authToken: null,
                 authUser: {},
-                isLoading: true
+                isLoading: true,
+                error: {}
+            };
+        case ACTIONS.SET_ERROR:
+            return {
+                ...state,
+                error: { ...state.error, [payload?.type]: payload?.msg }
+            };
+        case ACTIONS.RESET_ERROR:
+            return {
+                ...state,
+                error: {}
             };
         default: return state;
     }
