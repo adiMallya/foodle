@@ -52,7 +52,9 @@ let theme = {
 
     color: {
         primary: colors.amber[400],
-        secondary: colors.gray[200]
+        secondary: colors.gray[200],
+        success: colors.green[400],
+        error: colors.red[400]
     },
 
     fontSizes,
