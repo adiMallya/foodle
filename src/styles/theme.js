@@ -47,6 +47,16 @@ const lineHeights = [1, 1.2, 1.5];
 
 const radii = ["0.25rem", "0.5rem", "0.75rem", "1rem"];
 
+const z = {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+};
+
 let theme = {
     colors,
 
@@ -87,7 +97,9 @@ let theme = {
     bgColor: {
         primary: colors.bg["dark-primary"],
         secondary: colors.bg["dark-secondary"]
-    }
+    },
+
+    z,
 };
 
 export { theme };
