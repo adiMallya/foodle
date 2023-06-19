@@ -92,6 +92,7 @@ let theme = {
         roundedMd: radii[1],
         roundedLg: radii[2],
         roundedXl: radii[3],
+        solid: colors.gray[200],
     },
 
     bgColor: {
