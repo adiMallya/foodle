@@ -4,26 +4,37 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { RowCenter, Button } from "src/components/atoms";
 import { useAuthContext } from "src/contexts";
 import { loginService } from "src/features/auth";
+import { ACTIONS } from "src/utils";
 import * as S from "../authStyle";
 
 function LoginForm() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { authToken, authDispatch } = useAuthContext();
+  const { authToken, authDispatch, error } = useAuthContext();
 
   const [formData, setFormData] = useState({ username: "", password: "" });
 
   const loginHandler = (event) => {
     const { username, password } = formData;
     event.preventDefault();
-    loginService(username, password, authDispatch);
+    if (username === "" || password === "") {
+      authDispatch({
+        type: ACTIONS.SET_ERROR,
+        payload: {
+          type: username === "" ? "username" : "password",
+          msg: "Please fill required fields.",
+        },
+      });
+    } else {
+      loginService(username, password, authDispatch);
+    }
   };
 
   const loginAsGuest = () => {
-    setFormData({
+    setFormData((form) => ({
       username: "amallya",
       password: "P@ssw0rd",
-    });
+    }));
   };
 
   useEffect(() => {
@@ -45,7 +56,8 @@ function LoginForm() {
               setFormData((form) => ({ ...form, username: e.target.value }))
             }
             isAutoFocus={true}
-            required
+            onFocus={() => authDispatch({ type: ACTIONS.RESET_ERROR })}
+            showError={error?.username}
           />
           <S.FormInput
             placeholder="Enter Password"
@@ -53,8 +65,9 @@ function LoginForm() {
             onChange={(e) =>
               setFormData((form) => ({ ...form, password: e.target.value }))
             }
-            required
             showVisibility
+            onFocus={() => authDispatch({ type: ACTIONS.RESET_ERROR })}
+            showError={error?.password}
           />
           <Button type="submit" size="lg" fullwidth="true" aria-label="Log In">
             Log In
