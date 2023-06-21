@@ -36,6 +36,7 @@ p {
     font-size: ${({ theme }) => theme.font.sm};
     margin: 0.25rem 0;
     line-height: ${({ theme }) => theme.lineHeight.para};
+    color: ${({ theme }) => theme.font.primary};
 }
 
 ul {
