@@ -14,33 +14,45 @@ const Sidebar = () => {
   return (
     <S.SidebarContainer>
       <S.NavLinks>
+        <S.Brand>
+          <S.NavPill>Yumspot</S.NavPill>
+        </S.Brand>
         <li>
-          <S.NavLink to="/"></S.NavLink>
-        </li>
-        <li>
-          <S.NavLink to="/">
+          <S.Navlink
+            to="/"
+            style={({ isActive }) => (isActive ? S.activeStyle : null)}
+          >
             <S.NavIcon icon={faHouse} />
             <S.NavPill>Home</S.NavPill>
-          </S.NavLink>
+          </S.Navlink>
         </li>
         <li>
-          <S.NavLink to="/explore">
+          <S.Navlink
+            to="/explore"
+            style={({ isActive }) => (isActive ? S.activeStyle : null)}
+          >
             <S.NavIcon icon={faCompass} />
             <S.NavPill>Explore</S.NavPill>
-          </S.NavLink>
+          </S.Navlink>
         </li>
         <li>
-          <S.NavLink to="/saved">
+          <S.Navlink
+            to="/saved"
+            style={({ isActive }) => (isActive ? S.activeStyle : null)}
+          >
             <S.NavIcon icon={faBookmark} />
             <S.NavPill>Saved</S.NavPill>
-          </S.NavLink>
+          </S.Navlink>
         </li>
       </S.NavLinks>
       <S.NavLinks>
-        <S.NavLink to="/profile">
+        <S.Navlink
+          to="/profile"
+          style={({ isActive }) => (isActive ? S.activeStyle : null)}
+        >
           <S.NavIcon icon={faUserCircle} />
           <S.NavPill>@{authUser?.username}</S.NavPill>
-        </S.NavLink>
+        </S.Navlink>
       </S.NavLinks>
     </S.SidebarContainer>
   );
