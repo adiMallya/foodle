@@ -44,7 +44,6 @@ const Navlink = styled(NavLink)`
 `;
 
 const NavIcon = styled(Icon)`
-
     @media ${device.lg}{
         display: none;
     }
