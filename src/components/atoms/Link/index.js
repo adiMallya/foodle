@@ -6,11 +6,4 @@ export const BaseLink = styled(Link)`
     color: ${(p) => css`
         ${p.color ? p.color : p.theme.font.primary}
     `};
-
-    ${(p) => p.active && css`
-        &:active{
-            background-color: ${p.theme.bgColor.secondary};
-            border-radius: '9999px';
-        }
-    `}
 `;
