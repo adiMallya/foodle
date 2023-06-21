@@ -44,6 +44,7 @@ const Navlink = styled(NavLink)`
 `;
 
 const NavIcon = styled(Icon)`
+    font-size: ${({ theme }) => theme.font.md};
     @media ${device.lg}{
         display: none;
     }
