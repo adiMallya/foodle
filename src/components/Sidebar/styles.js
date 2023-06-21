@@ -4,42 +4,45 @@ import { Icon } from "src/components/atoms";
 import { FLEX, device } from "src/styles";
 
 const SidebarContainer = styled.nav`
-    ${FLEX("flex", "center", "space-between")};
+    ${FLEX("flex", "center")};
     background-color: ${({ theme }) => theme.bgColor.primary};
 
-    height: 100vh;
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
 
     position: fixed;
-    left: 0;
     bottom: 0;
+    border-top: 1px solid ${({ theme }) => theme.border.solid};
     z-index: ${({ theme }) => theme.z[4]};
 
     @media ${device.md}{
         ${FLEX("flex", "center", "space-between", "column")};
+        top: 0;
+        width: fit-content;
     }
 `;
 
 const NavLinks = styled.ul`
     ${FLEX('flex', 'center', 'flex-start')};
-    margin: 2rem auto;
-    gap: 2rem;
+    margin: 1.5rem auto;
 
     @media ${device.md}{
         ${FLEX("flex", "center", "flex-around", "column")};
+        gap: 2rem;
+        margin: 2rem auto;
     }
 `;
 
 const Navlink = styled(NavLink)`
-    padding: 0.75rem;
+    padding: 1.75rem;
     width: max-content;
     color: ${({ theme }) => theme.font.primary};
     cursor: pointer;
     &:hover{
         background-color: ${({ theme }) => theme.bgColor.secondary};
-        border-radius: 9999px;
+        border-radius: ${({ theme }) => theme.border.roundedXl};
+        padding: 0.625rem;
     }
 `;
 
@@ -59,6 +62,7 @@ const NavPill = styled.span`
 
 const Brand = styled.li`
     color: ${({ theme }) => theme.color.primary};
+    font-size: ${({ theme }) => theme.font.lg};
     font-weight: ${({ theme }) => theme.font.bold};
     font-style: italic;
     display: none;
@@ -70,7 +74,8 @@ const Brand = styled.li`
 const activeStyle = {
     backgroundColor: '#111827',
     borderRadius: "9999px",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    padding: "0.625rem",
 };
 
 export { SidebarContainer, NavLinks, Navlink, NavPill, NavIcon, Brand, activeStyle };

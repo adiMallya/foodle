@@ -46,13 +46,15 @@ const Sidebar = () => {
         </li>
       </S.NavLinks>
       <S.NavLinks>
-        <S.Navlink
-          to="/profile"
-          style={({ isActive }) => (isActive ? S.activeStyle : null)}
-        >
-          <S.NavIcon icon={faUserCircle} />
-          <S.NavPill>@{authUser?.username}</S.NavPill>
-        </S.Navlink>
+        <li>
+          <S.Navlink
+            to="/profile"
+            style={({ isActive }) => (isActive ? S.activeStyle : null)}
+          >
+            <S.NavIcon icon={faUserCircle} />
+            <S.NavPill>@{authUser?.username}</S.NavPill>
+          </S.Navlink>
+        </li>
       </S.NavLinks>
     </S.SidebarContainer>
   );
