@@ -20,6 +20,7 @@ const SidebarContainer = styled.nav`
         ${FLEX("flex", "center", "space-between", "column")};
         top: 0;
         width: fit-content;
+        border: none;
     }
 `;
 
