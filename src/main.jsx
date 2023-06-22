@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
-import { AuthProvider, PostProvider } from "src/contexts";
+import { AuthProvider, PostProvider, UserProvider } from "src/contexts";
 import App from "./App.jsx";
 import { makeServer } from "./server.js";
 
@@ -12,9 +12,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router>
       <PostProvider>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
+        <UserProvider>
+          <AuthProvider>
+            <App />
+          </AuthProvider>
+        </UserProvider>
       </PostProvider>
     </Router>
   </React.StrictMode>
