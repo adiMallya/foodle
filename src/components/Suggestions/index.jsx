@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuthContext, useUserContext } from "src/contexts";
 import { Button } from "src/components/atoms";
 import { Avatar } from "src/components";
-import { shuffleArray } from "src/utils";
 
 import * as S from "./styles";
 
