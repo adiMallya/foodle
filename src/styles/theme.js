@@ -61,7 +61,7 @@ let theme = {
     colors,
 
     color: {
-        primary: colors.amber[400],
+        primary: colors.amber[500],
         secondary: colors.gray[200],
         success: colors.green[400],
         error: colors.red[400]
