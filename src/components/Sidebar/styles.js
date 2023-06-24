@@ -15,10 +15,10 @@ const SidebarContainer = styled.nav`
     position: fixed;
     bottom: 0;
     border-top: 1px solid ${({ theme }) => theme.border.solid};
-    z-index: ${({ theme }) => theme.z[4]};
+    z-index: ${({ theme }) => theme.z[7]};
 
     @media ${device.md}{
-        ${FLEX("flex", "center", "space-between", "column")};
+        ${FLEX("flex", "flex-start", "space-between", "column")};
         top: 0;
         width: fit-content;
         border: none;
@@ -26,11 +26,11 @@ const SidebarContainer = styled.nav`
 `;
 
 const NavLinks = styled.ul`
-    ${FLEX('flex', 'center', 'flex-start')};
+    ${FLEX('flex')};
     margin: 1.5rem auto;
 
     @media ${device.md}{
-        ${FLEX("flex", "center", "flex-around", "column")};
+        ${FLEX("flex", "center", "space-around", "column")};
         gap: 2rem;
     }
 `;
