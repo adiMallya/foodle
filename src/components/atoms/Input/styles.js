@@ -10,6 +10,10 @@ const BaseInputContainer = styled.div`
   ${(p) => p.disabled && css`
     opacity: 0.5;
   `};
+
+  &:focus-within{
+    border: 1px solid ${({ theme }) => theme.border.solid};
+  }
 `;
 
 const BaseInputLabel = styled.label`
