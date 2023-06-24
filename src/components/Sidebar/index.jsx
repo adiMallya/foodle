@@ -1,5 +1,6 @@
 import {
   faHouse,
+  faCirclePlus,
   faCompass,
   faBookmark,
 } from "@fortawesome/free-solid-svg-icons";
@@ -32,6 +33,11 @@ const Sidebar = () => {
             <S.NavPill>Home</S.NavPill>
           </S.Navlink>
         </li>
+        <S.CreatePost>
+          <S.Navlink to="#">
+            <S.NavIcon icon={faCirclePlus} />
+          </S.Navlink>
+        </S.CreatePost>
         <li>
           <S.Navlink
             to="/explore"

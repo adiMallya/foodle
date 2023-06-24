@@ -87,6 +87,12 @@ const ProfileDesc = styled(SS.UserDesc)`
     }
 `;
 
+const CreatePost = styled.li`
+    @media ${device.lg}{
+        display: none;
+    }
+`;
+
 const activeStyle = {
     backgroundColor: '#111827',
     borderRadius: "9999px",
@@ -94,4 +100,4 @@ const activeStyle = {
     padding: "0.625rem",
 };
 
-export { SidebarContainer, NavLinks, Navlink, NavPill, NavIcon, Brand, ProfileLink, ProfileDesc, activeStyle };
+export { SidebarContainer, NavLinks, Navlink, NavPill, NavIcon, Brand, ProfileLink, ProfileDesc, CreatePost, activeStyle };
