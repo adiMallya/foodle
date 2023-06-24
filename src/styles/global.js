@@ -65,6 +65,16 @@ img {
 *::placeholder{
     color: ${({ theme }) => theme.font.secondary};
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.font.primary};
+  background-clip: content-box;
+}
 `;
 
 const FLEX = (
