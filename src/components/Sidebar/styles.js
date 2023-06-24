@@ -32,7 +32,6 @@ const NavLinks = styled.ul`
     @media ${device.md}{
         ${FLEX("flex", "center", "flex-around", "column")};
         gap: 2rem;
-        margin: 2rem auto;
     }
 `;
 
