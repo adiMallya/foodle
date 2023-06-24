@@ -1,4 +1,4 @@
-import { Sidebar } from "src/components";
+import { Sidebar, Suggestions, Searchbar } from "src/components";
 import * as S from "./styles";
 
 const PageLayout = ({ children }) => {
@@ -9,7 +9,8 @@ const PageLayout = ({ children }) => {
       </S.AsideLeft>
       <S.Main>{children}</S.Main>
       <S.AsideRight>
-        <h1>Suggestions</h1>
+        <Searchbar />
+        <Suggestions />
       </S.AsideRight>
     </S.Wrapper>
   );

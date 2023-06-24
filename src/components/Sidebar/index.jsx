@@ -1,15 +1,22 @@
 import {
   faHouse,
+  faCirclePlus,
   faCompass,
   faBookmark,
-  faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { useAuthContext } from "src/contexts";
+import { useAuthContext, useUserContext } from "src/contexts";
+import { Avatar } from "src/components";
 
 import * as S from "./styles";
+import * as SS from "../Suggestions/styles";
 
 const Sidebar = () => {
   const { authUser } = useAuthContext();
+  const { users } = useUserContext();
+
+  const currentUser = users?.find(
+    (user) => user.username === authUser?.username
+  );
 
   return (
     <S.SidebarContainer>
@@ -26,6 +33,11 @@ const Sidebar = () => {
             <S.NavPill>Home</S.NavPill>
           </S.Navlink>
         </li>
+        <S.CreatePost>
+          <S.Navlink to="#">
+            <S.NavIcon icon={faCirclePlus} />
+          </S.Navlink>
+        </S.CreatePost>
         <li>
           <S.Navlink
             to="/explore"
@@ -47,13 +59,15 @@ const Sidebar = () => {
       </S.NavLinks>
       <S.NavLinks>
         <li>
-          <S.Navlink
-            to="/profile"
-            style={({ isActive }) => (isActive ? S.activeStyle : null)}
-          >
-            <S.NavIcon icon={faUserCircle} />
-            <S.NavPill>@{authUser?.username}</S.NavPill>
-          </S.Navlink>
+          <S.ProfileLink to={`/profile/${currentUser?.username}`}>
+            <Avatar user={currentUser} />
+            <S.ProfileDesc>
+              <SS.UserFullName>
+                {currentUser?.firstName + " " + currentUser?.lastName}
+              </SS.UserFullName>
+              <SS.UserName>@{currentUser?.username}</SS.UserName>
+            </S.ProfileDesc>
+          </S.ProfileLink>
         </li>
       </S.NavLinks>
     </S.SidebarContainer>

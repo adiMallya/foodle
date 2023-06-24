@@ -12,6 +12,7 @@ const Input = ({
   isDisabled = false,
   defaultValue,
   onChange,
+  onKeyDown,
   value,
   pattern,
   supportedFileExtensions,
@@ -40,6 +41,7 @@ const Input = ({
         autoFocus={isAutoFocus}
         disabled={isDisabled}
         onChange={onChange}
+        onKeyDown={onKeyDown}
         value={value}
         accept={supportedFileExtensions}
         pattern={pattern}

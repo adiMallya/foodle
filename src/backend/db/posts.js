@@ -18,7 +18,8 @@ export const posts = [
       dislikedBy: [],
     },
     username: "johndoe",
-    fullName: "John Doe",
+    firstName: "John",
+    lastName: "Doe",
     createdAt: "2022-05-01",
     updatedAt: formatDate(),
     comments: [
@@ -66,7 +67,8 @@ export const posts = [
     },
 
     username: "josephtess",
-    fullName: "Tess Joseph",
+    firstName: "Tess",
+    lastName: "Joseph",
     createdAt: "2022-05-11",
     updatedAt: formatDate(),
     comments: [
@@ -96,7 +98,8 @@ export const posts = [
       likedBy: [
         {
           _id: uuid(),
-          fullName: "John Doe",
+          firstName: "John",
+          lastName: "Doe",
           username: "johndoe",
           profileAvatar:
             "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/1373242_prl159.jpg",
@@ -121,7 +124,8 @@ export const posts = [
       dislikedBy: [],
     },
     username: "amallya",
-    fullName: "Adithya Mallya",
+    firstName: "Adithya",
+    lastName: "Mallya",
     createdAt: "2022-05-05",
     updatedAt: formatDate(),
     comments: [
@@ -167,7 +171,8 @@ export const posts = [
     },
     postImage: null,
     username: "johndoe",
-    fullName: "John Doe",
+    firstName: "John",
+    lastName: "Doe",
     createdAt: "2022-05-11",
     updatedAt: formatDate(),
     comments: [],
@@ -183,7 +188,8 @@ export const posts = [
       dislikedBy: []
     },
     username: "josephtess",
-    fullName: "Tess Joseph",
+    firstName: "Tess",
+    lastName: "Joesph",
     createdAt: "2022-05-09",
     updatedAt: formatDate(),
     comments: [

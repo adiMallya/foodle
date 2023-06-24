@@ -1,7 +1,8 @@
 import { styled } from "styled-components";
 import { NavLink } from "react-router-dom";
-import { Icon } from "src/components/atoms";
+import { Icon, BaseLink } from "src/components/atoms";
 import { FLEX, device } from "src/styles";
+import * as SS from "../Suggestions/styles";
 
 const SidebarContainer = styled.nav`
     ${FLEX("flex", "center")};
@@ -9,7 +10,7 @@ const SidebarContainer = styled.nav`
 
     width: 100%;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
 
     position: fixed;
     bottom: 0;
@@ -20,6 +21,7 @@ const SidebarContainer = styled.nav`
         ${FLEX("flex", "center", "space-between", "column")};
         top: 0;
         width: fit-content;
+        border: none;
     }
 `;
 
@@ -30,7 +32,6 @@ const NavLinks = styled.ul`
     @media ${device.md}{
         ${FLEX("flex", "center", "flex-around", "column")};
         gap: 2rem;
-        margin: 2rem auto;
     }
 `;
 
@@ -71,6 +72,26 @@ const Brand = styled.li`
     }
 `;
 
+const ProfileLink = styled(BaseLink)`
+    ${FLEX("flex", "flex-start", "center")};
+    gap: 1rem;
+    width: 100%;
+    cursor: pointer;
+`;
+
+const ProfileDesc = styled(SS.UserDesc)`
+    display: none;
+    @media ${device.lg}{
+        display: block;
+    }
+`;
+
+const CreatePost = styled.li`
+    @media ${device.lg}{
+        display: none;
+    }
+`;
+
 const activeStyle = {
     backgroundColor: '#111827',
     borderRadius: "9999px",
@@ -78,4 +99,4 @@ const activeStyle = {
     padding: "0.625rem",
 };
 
-export { SidebarContainer, NavLinks, Navlink, NavPill, NavIcon, Brand, activeStyle };
+export { SidebarContainer, NavLinks, Navlink, NavPill, NavIcon, Brand, ProfileLink, ProfileDesc, CreatePost, activeStyle };

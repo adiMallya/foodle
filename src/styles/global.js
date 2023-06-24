@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
     font-size: ${({ theme }) => theme.font.sm};
-    margin: 0.25rem 0;
+    margin: 0;
     line-height: ${({ theme }) => theme.lineHeight.para};
     color: ${({ theme }) => theme.font.primary};
 }
@@ -64,6 +64,16 @@ img {
 
 *::placeholder{
     color: ${({ theme }) => theme.font.secondary};
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.font.primary};
+  background-clip: content-box;
 }
 `;
 
