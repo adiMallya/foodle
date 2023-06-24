@@ -10,15 +10,15 @@ const Suggestions = () => {
   const { authUser } = useAuthContext();
   const { users } = useUserContext();
 
-  const loggedInUser = users?.find(
+  const currentUser = users?.find(
     (user) => user.username === authUser?.username
   );
 
   const suggestUsers = users
-    ?.filter((user) => user.username !== loggedInUser?.username)
+    ?.filter((user) => user.username !== currentUser?.username)
     ?.filter(
       (e) =>
-        !loggedInUser?.following.find((item) => item.username === e.username)
+        !currentUser?.following.find((item) => item.username === e.username)
     );
 
   return (
