@@ -1,4 +1,4 @@
-const getSearchedUsers = (users, searchValue) => users.filter(
+const getSearchedUsers = (users, searchValue) => [...users].filter(
     (item) =>
         item.firstName.toLowerCase().startsWith(searchValue) ||
         item.lastName.toLowerCase().startsWith(searchValue) ||
