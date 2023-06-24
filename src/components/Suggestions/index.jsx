@@ -11,13 +11,14 @@ const Suggestions = () => {
   const { users } = useUserContext();
 
   const loggedInUser = users?.find(
-    (user) => user.username === authUser.username
+    (user) => user.username === authUser?.username
   );
 
   const suggestUsers = users
-    ?.filter((user) => user._id !== loggedInUser._id)
+    ?.filter((user) => user.username !== loggedInUser?.username)
     ?.filter(
-      (e) => !loggedInUser?.following.some((item) => item._id === e._id)
+      (e) =>
+        !loggedInUser?.following.find((item) => item.username === e.username)
     );
 
   return (
