@@ -36,11 +36,16 @@ const PostCard = ({ post }) => {
       <S.PostSection>
         <S.PostHeader>
           <S.PostDetails>
-            <span onClick={() => navigate(`/profile/${_id}`)}>@{username}</span>
+            <span
+              onClick={() => navigate(`/profile/${_id}`)}
+              aria-label="Username"
+            >
+              @{username}
+            </span>
             <span>·</span>
-            <span>{getPostTime(createdAt)}</span>
+            <span aria-label="Date">{getPostTime(createdAt)}</span>
           </S.PostDetails>
-          <Button variant="icon">
+          <Button variant="icon" aria-label="Options">
             <Icon icon={faEllipsis} title={"More options"} />
           </Button>
         </S.PostHeader>
@@ -52,22 +57,27 @@ const PostCard = ({ post }) => {
         ) : null}
         <S.UserActions>
           <div>
-            <Button variant="icon" size="sm">
+            <Button variant="icon" size="sm" aria-label="Like">
               <S.LikeIcon
                 icon={likes.likeCount > 0 ? filledHeart : regularHeart}
+                title="Like"
               />
             </Button>
-            {likes.likeCount > 0 && <span>{likes.likeCount}</span>}
+            {likes.likeCount > 0 && (
+              <span aria-label="Like Count">{likes.likeCount}</span>
+            )}
           </div>
           <div>
-            <Button variant="icon" size="sm">
-              <Icon icon={faMessage} />
+            <Button variant="icon" size="sm" aria-label="Comment">
+              <Icon icon={faMessage} title="Comment" />
             </Button>
-            {comments?.length > 0 && <span>{comments?.length}</span>}
+            {comments?.length > 0 && (
+              <span aria-label="Comment Count">{comments?.length}</span>
+            )}
           </div>
           <div>
-            <Button variant="icon" size="sm">
-              <S.BookmarkIcon icon={regularBookmark} />
+            <Button variant="icon" size="sm" aria-label="Save">
+              <S.BookmarkIcon icon={regularBookmark} title="Save" />
             </Button>
           </div>
         </S.UserActions>
