@@ -50,9 +50,10 @@ const variants = {
 
     icon: css`
         background-color: transparent;
-        ${(p) => p.hoverIcon && css`
+        ${(p) => p.hoverColor && css`
             &:hover {
-                background: ${p.hoverIcon};
+                background: ${p.hoverColor ? p.hoverColor : p.theme.bgColor.secondary};
+                padding: 0.25rem;
                 border-radius: 9999px;
             }
         `}
