@@ -41,7 +41,7 @@ export const posts = [
         _id: uuid(),
         comment:
           "Wow!",
-        username: "vthong",
+        username: "v_thong",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/20221023121016-635569a0de3f8345fb573ce3jpeg_kxznr8.webp",
         createdAt: formatDate(),
@@ -107,7 +107,7 @@ export const posts = [
       ],
       dislikedBy: [],
     },
-    username: "v_thong",
+    username: "vo_thong",
     fullName: "Thong Vo",
     comments: [],
     createdAt: "2022-04-20",

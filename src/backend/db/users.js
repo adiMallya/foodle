@@ -21,7 +21,11 @@ export const users = [
       {
         _id: uuid(), username: "johndoe", profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/1373242_prl159.jpg"
-      }
+      },
+      {
+        _id: uuid(), username: "vo_thong", profileAvatar:
+          "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/20221023121016-635569a0de3f8345fb573ce3jpeg_kxznr8.webp"
+      },
     ],
     followers: [
       {
@@ -74,7 +78,7 @@ export const users = [
     _id: uuid(),
     firstName: "Thong",
     lastName: "Vo",
-    username: "vthong",
+    username: "vo_thong",
     password: "P@ssw0rd",
     bio: "Hustling. Diving. Running.",
     website: "https://www.thongvo.me",
