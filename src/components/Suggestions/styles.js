@@ -19,7 +19,7 @@ const ListTitle = styled.p`
 
 const UserCard = styled.div`
     ${FLEX("flex", "flex-start", "space-between")};
-    gap: 2rem;
+    gap: 1rem;
     width: 100%;
     cursor: pointer;
 `;
