@@ -19,8 +19,8 @@ const SidebarContainer = styled.nav`
 
     @media ${device.md}{
         ${FLEX("flex", "flex-start", "space-between", "column")};
-        top: 0;
-        width: fit-content;
+        position: sticky;
+        height: 100vh;
         border: none;
     }
 `;

@@ -5,7 +5,7 @@ const Wrapper = styled.div`
     ${FLEX("flex", "flex-start", "center", "column")};
     gap: 1.5rem;
     height: max-content;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
     padding: 0.85rem 1.2rem;
     border-radius: ${({ theme }) => theme.border.roundedMd};
     position: sticky;

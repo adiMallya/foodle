@@ -3,8 +3,9 @@ import { device } from "src/styles";
 
 const Wrapper = styled.div`
     margin: auto;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+    
     display: grid;
     grid-template-areas: 
         "main"
@@ -12,17 +13,15 @@ const Wrapper = styled.div`
         ;
 
     @media ${device.md}{
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 5rem 1fr;
         grid-template-areas: 
-        "asideLeft main"
         "asideLeft main"
         ;
     }
     @media ${device.lg}{
         width: 80%;
-        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-columns: 12rem 1fr 18rem;
         grid-template-areas: 
-        "asideLeft main asideRight"
         "asideLeft main asideRight"
         ;
     }    
@@ -34,12 +33,14 @@ const AsideLeft = styled.aside`
 
 const AsideRight = styled.aside`
     grid-area: asideRight;
+    display: none;
+    @media ${device.lg}{
+        display: block;
+        margin: 1.5rem 0.625rem;
+    }
 `;
 
 const Main = styled.main`
-    height: 100vh;
-    border-left: 1px ${({ theme }) => theme.border.solid};
-    border-right: 1px ${({ theme }) => theme.border.solid};
     grid-area: main;
 `;
 
