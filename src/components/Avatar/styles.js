@@ -3,7 +3,7 @@ import { FLEX } from "src/styles";
 
 const AvatarWrapper = styled.span`
     height: 2rem;
-    width: 3rem;
+    width: 2rem;
     border-radius: 50%;
     overflow: hidden;
 
@@ -13,7 +13,6 @@ const AvatarWrapper = styled.span`
 
 const AvatarImage = styled.img`
     height: 100%;
-    width: 100%;
     object-fit: cover;
 `;
 
