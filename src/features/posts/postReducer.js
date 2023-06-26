@@ -22,6 +22,8 @@ const postReducer = (state, { type, payload }) => {
                 singlePost: payload,
                 isLoading: false
             };
+        case ACTIONS.SORT_BY:
+            return { ...state, sortBy: payload };
         case ACTIONS.SET_ERROR:
             return {
                 ...state,
