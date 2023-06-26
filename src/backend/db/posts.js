@@ -8,7 +8,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const posts = [
   {
-    _id: uuid(),
+    _id: "xhzTkUi2Nt",
     content:
       "BEST WINGS in town guys!!.",
     mediaURL: "https://res.cloudinary.com/dtaztriby/image/upload/v1687070626/twizzle-social/posts/images/air-fryer-chicken-wings_web-6.jpg_kwpzib.webp",
@@ -24,7 +24,7 @@ export const posts = [
     updatedAt: formatDate(),
     comments: [
       {
-        _id: uuid(),
+        _id: "okzxcf",
         comment:
           "Damn! Gotta grab this soon.",
         username: "bubblyme",
@@ -38,7 +38,7 @@ export const posts = [
         },
       },
       {
-        _id: uuid(),
+        _id: "etzxcf",
         comment:
           "Wow!",
         username: "v_thong",
@@ -54,7 +54,7 @@ export const posts = [
     ],
   },
   {
-    _id: uuid(),
+    _id: "3XHvLP1fg",
     content:
       `If you are a south indian food lover, this is a place you can go for.
       It is easy to spot from the road because of the heavy crowd. The food 
@@ -73,7 +73,7 @@ export const posts = [
     updatedAt: formatDate(),
     comments: [
       {
-        _id: uuid(),
+        _id: "6nImWvImxo",
         comment:
           "Nice!",
         username: "johndoe",
@@ -89,7 +89,7 @@ export const posts = [
     ],
   },
   {
-    _id: uuid(),
+    _id: "pOX2sDQF7e",
     content:
       "Absolutely loved the food ❤️, American lamb burger must try",
     mediaURL: "https://res.cloudinary.com/dtaztriby/image/upload/v1687070273/twizzle-social/posts/images/fill-700x467_7Cformat-webp_7Cwebpquality-70_sr5htx.webp",
@@ -97,7 +97,7 @@ export const posts = [
       likeCount: 1,
       likedBy: [
         {
-          _id: uuid(),
+          _id: "fIHrB5Ny3X",
           firstName: "John",
           lastName: "Doe",
           username: "johndoe",
@@ -114,7 +114,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "wcvTY7qrM4",
     content:
       "Shah Ghouse guyyyys! Gotta live life to have this biriyani!",
     mediaURL: "",
@@ -130,7 +130,7 @@ export const posts = [
     updatedAt: formatDate(),
     comments: [
       {
-        _id: uuid(),
+        _id: "tUH3oPm6Rx",
         comment:
           "Nice!",
         username: "vo_thong",
@@ -144,7 +144,7 @@ export const posts = [
         },
       },
       {
-        _id: uuid(),
+        _id: "aXLkT4zR9n",
         comment:
           "Yummmmmmm.",
         username: "bubblyme",
@@ -160,7 +160,7 @@ export const posts = [
     ],
   },
   {
-    _id: uuid(),
+    _id: "bER3u6SjFp",
     content:
       "Went out for dinner at Chili's Hyderabad. The taste reminds me of back home in Autralia.",
     mediaURL: "",
@@ -169,7 +169,6 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    postImage: null,
     username: "johndoe",
     firstName: "John",
     lastName: "Doe",
@@ -178,7 +177,7 @@ export const posts = [
     comments: [],
   },
   {
-    _id: uuid(),
+    _id: "kLWR4sJg6E",
     content:
       "Guys I am in Mumbai! Please drop your suggestions",
     mediaURL: "",
@@ -194,7 +193,7 @@ export const posts = [
     updatedAt: formatDate(),
     comments: [
       {
-        _id: uuid(),
+        _id: "mNDu3jZb2A",
         comment:
           "Cafe Madras and Koolar & Co in Matunga!",
         username: "vo_thong",
@@ -208,7 +207,7 @@ export const posts = [
         },
       },
       {
-        _id: uuid(),
+        _id: "oDEs6fWc9V",
         comment:
           `Veronica's in Bandra for your burger's, Prakash at Dadar 
           for autentic mumbai food AND Noor Mohammadi in Mohammed Ali road!`,
