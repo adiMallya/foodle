@@ -6,25 +6,28 @@ const Wrapper = styled.div`
 
     width: 100%;
     height: 100vh;
+    position: relative;
 
     border-left: 0.3px solid ${({ theme }) => theme.border.solid};
     border-right: 0.3px solid ${({ theme }) => theme.border.solid};
 `;
 
 const Header = styled.div`
-    ${FLEX("flex", "flex-start")};
-    padding: 2rem;
+    ${FLEX("flex", "center", "center")};
+    padding: 1rem 0.625rem;
     border: 0.3px solid ${({ theme }) => theme.border.solid};
     
     position: sticky;
+    top: 0;
     z-index: ${({ theme }) => theme.z[7]};
     width: 100%;
 
     background-color: ${({ theme }) => theme.bgColor.secondary};
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);    
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0.9;
 
     font-weight: ${({ theme }) => theme.font.semibold};
+    color: ${({ theme }) => theme.font.primary};
 `;
 
 const NoData = styled.div`
