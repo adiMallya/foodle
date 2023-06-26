@@ -13,7 +13,8 @@ import { useAuthContext, useUserContext, usePostContext } from "src/contexts";
 import { Icon, Button } from "src/components/atoms";
 import { Avatar } from "src/components";
 import { likePost, dislikePost } from "src/features/posts";
-import { getPostTime, isLikedByUser } from "src/utils";
+import { addToSavedPosts, removeSavedPost } from "src/features/users";
+import { getPostTime, isLikedByUser, isSavedByUser } from "src/utils";
 
 import * as S from "./styles";
 
@@ -21,7 +22,7 @@ const PostCard = ({ post }) => {
   const navigate = useNavigate();
   const { authToken, authUser } = useAuthContext();
   const { posts, postDispatch } = usePostContext();
-  const { users } = useUserContext();
+  const { users, bookmarks, userDispatch } = useUserContext();
 
   const currentPost = posts?.find((dbPosts) => dbPosts._id === post?._id);
   const { _id, username, content, mediaURL, createdAt, likes, comments } =
@@ -36,6 +37,13 @@ const PostCard = ({ post }) => {
     isLikedByUser(currentPost, authUser.username)
       ? dislikePost(authToken, currentPost._id, postDispatch)
       : likePost(authToken, currentPost._id, postDispatch);
+  };
+
+  const saveBtnHandler = (event) => {
+    event.stopPropagation();
+    isSavedByUser(bookmarks, currentPost._id)
+      ? removeSavedPost(currentPost._id, authToken, userDispatch)
+      : addToSavedPosts(currentPost._id, authToken, userDispatch);
   };
 
   return (
@@ -96,8 +104,20 @@ const PostCard = ({ post }) => {
             )}
           </div>
           <div>
-            <Button variant="icon" size="sm" aria-label="Save">
-              <S.BookmarkIcon icon={regularBookmark} title="Save" />
+            <Button
+              variant="icon"
+              size="sm"
+              aria-label="Save"
+              onClick={saveBtnHandler}
+            >
+              <S.BookmarkIcon
+                icon={
+                  isSavedByUser(bookmarks, currentPost._id)
+                    ? filledBookmark
+                    : regularBookmark
+                }
+                title="Save"
+              />
             </Button>
           </div>
         </S.UserActions>
