@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { Toaster } from "react-hot-toast";
 
 import { LoginForm, SignUpForm, PrivateRoute } from "src/features/auth";
-import { Home } from "src/pages";
+import { Home, Saved } from "src/pages";
 import { GlobalStyles, theme } from "src/styles";
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<Home />} />
+          <Route path="/saved" element={<Saved />} />
         </Route>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SignUpForm />} />
