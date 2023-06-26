@@ -20,4 +20,6 @@ const sortByType = (posts, type) => {
     }
 };
 
-export { getSearchedUsers, updateUserDb, sortByType };
+const isLikedByUser = (post, username) => post?.likes.likedBy?.some(likedUser => likedUser.username === username);
+
+export { getSearchedUsers, updateUserDb, sortByType, isLikedByUser };

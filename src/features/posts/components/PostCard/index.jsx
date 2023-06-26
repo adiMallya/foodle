@@ -9,39 +9,50 @@ import {
   faBookmark as regularBookmark,
   faMessage,
 } from "@fortawesome/free-regular-svg-icons";
-import { useUserContext, usePostContext } from "src/contexts";
+import { useAuthContext, useUserContext, usePostContext } from "src/contexts";
 import { Icon, Button } from "src/components/atoms";
 import { Avatar } from "src/components";
-import { getPostTime } from "src/utils";
+import { likePost, dislikePost } from "src/features/posts";
+import { getPostTime, isLikedByUser } from "src/utils";
 
 import * as S from "./styles";
 
 const PostCard = ({ post }) => {
   const navigate = useNavigate();
-  const { posts } = usePostContext();
+  const { authToken, authUser } = useAuthContext();
+  const { posts, postDispatch } = usePostContext();
   const { users } = useUserContext();
 
   const currentPost = posts?.find((dbPosts) => dbPosts._id === post?._id);
   const { _id, username, content, mediaURL, createdAt, likes, comments } =
     currentPost;
 
-  const currentUser = users?.find((user) => user.username === username);
+  const currentUser = users?.find(
+    (user) => user.username === currentPost.username
+  );
+
+  const likeBtnHandler = (event) => {
+    event.stopPropagation();
+    isLikedByUser(currentPost, authUser.username)
+      ? dislikePost(authToken, currentPost._id, postDispatch)
+      : likePost(authToken, currentPost._id, postDispatch);
+  };
 
   return (
     <S.PostContainer onClick={() => navigate(`/post/${_id}`)}>
-      <S.PostUser onClick={() => navigate(`/profile/${_id}`)}>
+      <S.PostUser
+        onClick={(e) => {
+          e.stopPropagation();
+          navigate(`/profile/${_id}`);
+        }}
+      >
         <Avatar user={currentUser} />
       </S.PostUser>
 
       <S.PostSection>
         <S.PostHeader>
           <S.PostDetails>
-            <span
-              onClick={() => navigate(`/profile/${_id}`)}
-              aria-label="Username"
-            >
-              @{username}
-            </span>
+            <span aria-label="Username">@{username}</span>
             <span>·</span>
             <span aria-label="Date">{getPostTime(createdAt)}</span>
           </S.PostDetails>
@@ -57,9 +68,18 @@ const PostCard = ({ post }) => {
         ) : null}
         <S.UserActions>
           <div>
-            <Button variant="icon" size="sm" aria-label="Like">
+            <Button
+              variant="icon"
+              size="sm"
+              aria-label="Like"
+              onClick={likeBtnHandler}
+            >
               <S.LikeIcon
-                icon={likes.likeCount > 0 ? filledHeart : regularHeart}
+                icon={
+                  isLikedByUser(currentPost, authUser.username)
+                    ? filledHeart
+                    : regularHeart
+                }
                 title="Like"
               />
             </Button>
