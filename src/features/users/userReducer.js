@@ -38,6 +38,12 @@ const userReducer = (state, { type, payload }) => {
                 ...state,
                 isLoading: true
             };
+        case ACTIONS.SET_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                error: payload
+            };
         default: return state;
     }
 };
