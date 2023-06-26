@@ -7,4 +7,17 @@ const getSearchedUsers = (users, searchValue) => [...users].filter(
 
 const updateUserDb = (users, payload) => [...users].map((user) => user._id === payload._id ? payload : user);
 
-export { getSearchedUsers, updateUserDb };
+const sortByType = (posts, type) => {
+    let sorted = [...posts];
+    switch (type) {
+        case 'Trending':
+            return sorted.sort((a, b) =>
+                (a.likes.likeCount + a.comments.length) - (b.likes.likeCount + b.comments.length));
+        case 'Oldest':
+            return sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        default:
+            return sorted.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+    }
+};
+
+export { getSearchedUsers, updateUserDb, sortByType };
