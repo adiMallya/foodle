@@ -38,7 +38,8 @@ const Sort = () => {
                 postDispatch({ type: ACTIONS.SORT_BY, payload: "Trending" })
               }
             >
-              <Icon icon={faArrowTrendUp} /> <span>Trending</span>
+              <Icon icon={faArrowTrendUp} title="Trending" />{" "}
+              <span aria-label="Trending">Trending</span>
             </S.SortOption>
             <S.SortOption
               variant="icon"
@@ -48,7 +49,8 @@ const Sort = () => {
                 postDispatch({ type: ACTIONS.SORT_BY, payload: "Latest" })
               }
             >
-              <Icon icon={faCaretUp} /> <span>Latest</span>
+              <Icon icon={faCaretUp} title="Latest" />{" "}
+              <span aria-label="Latest">Latest</span>
             </S.SortOption>
             <S.SortOption
               variant="icon"
@@ -58,7 +60,8 @@ const Sort = () => {
                 postDispatch({ type: ACTIONS.SORT_BY, payload: "Oldest" })
               }
             >
-              <Icon icon={faCaretDown} /> <span>Oldest</span>
+              <Icon icon={faCaretDown} title="Oldest" />{" "}
+              <span aria-label="Oldest">Oldest</span>
             </S.SortOption>
           </S.SortDropdown>
         ) : null}
