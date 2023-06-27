@@ -3,12 +3,14 @@ import {
   faEllipsis,
   faHeart as filledHeart,
   faBookmark as filledBookmark,
+  faShare,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faHeart as regularHeart,
   faBookmark as regularBookmark,
   faMessage,
 } from "@fortawesome/free-regular-svg-icons";
+import { toast } from "react-hot-toast";
 import { useAuthContext, useUserContext, usePostContext } from "src/contexts";
 import { Icon, Button } from "src/components/atoms";
 import { Avatar } from "src/components";
@@ -46,8 +48,18 @@ const PostCard = ({ post }) => {
       : addToSavedPosts(currentPost._id, authToken, userDispatch);
   };
 
+  const shareBtnHandler = (event) => {
+    event.stopPropagation();
+    navigator.clipboard.writeText(
+      `https://yumspot.vercel.app/post/${currentPost._id}`
+    );
+    toast.success("Link Copied. Start Sharing!", {
+      iconTheme: { color: "#f59e0b" },
+    });
+  };
+
   return (
-    <S.PostContainer onClick={() => navigate(`/post/${_id}`)}>
+    <S.PostContainer>
       <S.PostUser
         onClick={(e) => {
           e.stopPropagation();
@@ -68,7 +80,9 @@ const PostCard = ({ post }) => {
             <Icon icon={faEllipsis} title={"More options"} />
           </Button>
         </S.PostHeader>
-        <S.PostContent>{content}</S.PostContent>
+        <S.PostContent onClick={() => navigate(`/post/${_id}`)}>
+          {content}
+        </S.PostContent>
         {mediaURL ? (
           <S.PostMedia>
             <img src={mediaURL} alt={`post_${_id}`} />
@@ -76,48 +90,60 @@ const PostCard = ({ post }) => {
         ) : null}
         <S.UserActions>
           <div>
+            <div>
+              <Button
+                variant="icon"
+                size="sm"
+                aria-label="Like"
+                onClick={likeBtnHandler}
+              >
+                <S.LikeIcon
+                  icon={
+                    isLikedByUser(currentPost, authUser.username)
+                      ? filledHeart
+                      : regularHeart
+                  }
+                  title="Like"
+                />
+              </Button>
+              {likes.likeCount > 0 && (
+                <span aria-label="Like Count">{likes.likeCount}</span>
+              )}
+            </div>
+            <div>
+              <Button variant="icon" size="sm" aria-label="Comment">
+                <Icon icon={faMessage} title="Comment" />
+              </Button>
+              {comments?.length > 0 && (
+                <span aria-label="Comment Count">{comments?.length}</span>
+              )}
+            </div>
+            <div>
+              <Button
+                variant="icon"
+                size="sm"
+                aria-label="Save"
+                onClick={saveBtnHandler}
+              >
+                <S.BookmarkIcon
+                  icon={
+                    isSavedByUser(bookmarks, currentPost._id)
+                      ? filledBookmark
+                      : regularBookmark
+                  }
+                  title="Save"
+                />
+              </Button>
+            </div>
+          </div>
+          <div>
             <Button
               variant="icon"
               size="sm"
-              aria-label="Like"
-              onClick={likeBtnHandler}
+              aria-label="Share"
+              onClick={shareBtnHandler}
             >
-              <S.LikeIcon
-                icon={
-                  isLikedByUser(currentPost, authUser.username)
-                    ? filledHeart
-                    : regularHeart
-                }
-                title="Like"
-              />
-            </Button>
-            {likes.likeCount > 0 && (
-              <span aria-label="Like Count">{likes.likeCount}</span>
-            )}
-          </div>
-          <div>
-            <Button variant="icon" size="sm" aria-label="Comment">
-              <Icon icon={faMessage} title="Comment" />
-            </Button>
-            {comments?.length > 0 && (
-              <span aria-label="Comment Count">{comments?.length}</span>
-            )}
-          </div>
-          <div>
-            <Button
-              variant="icon"
-              size="sm"
-              aria-label="Save"
-              onClick={saveBtnHandler}
-            >
-              <S.BookmarkIcon
-                icon={
-                  isSavedByUser(bookmarks, currentPost._id)
-                    ? filledBookmark
-                    : regularBookmark
-                }
-                title="Save"
-              />
+              <S.BookmarkIcon icon={faShare} title="Share" />
             </Button>
           </div>
         </S.UserActions>

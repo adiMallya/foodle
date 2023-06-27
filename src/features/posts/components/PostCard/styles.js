@@ -7,10 +7,7 @@ const PostContainer = styled.div`
     gap: 1rem;
 
     background-color: ${({ theme }) => theme.bgColor.secondary};
-    padding: 0.625rem;
-    border: 1px solid ${({ theme }) => theme.border.solid};
-
-    cursor: pointer;
+    padding: 1.1rem 0.625rem;
 `;
 
 const PostSection = styled.div`
@@ -27,6 +24,7 @@ const PostHeader = styled.div`
 const PostUser = styled.div`
     ${FLEX("flex", "center")};
     margin-top: 0.25rem;
+    cursor: pointer;
 `;
 
 const PostDetails = styled.div`
@@ -38,6 +36,7 @@ const PostDetails = styled.div`
 
 const PostContent = styled.p`
     ${CLAMP_TEXT()};
+    cursor: pointer;
 `;
 
 const PostMedia = styled.div`
@@ -46,11 +45,20 @@ const PostMedia = styled.div`
     height: 300px;
 
     margin: 0.125rem 0;
+    cursor: pointer;
 `;
 
 const UserActions = styled.div`
-    ${FLEX("flex")};
-    gap: 2rem;
+    ${FLEX("flex", null, "space-between")};
+
+    width: 100%;
+    border-top: 1px solid ${({ theme }) => theme.border.solid};
+    padding-top: 0.625rem;
+
+    div:first-of-type {
+        ${FLEX("flex")};
+        gap: 2rem;
+    }
 
     span {
         margin: 0;
