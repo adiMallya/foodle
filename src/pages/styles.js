@@ -5,8 +5,7 @@ const Wrapper = styled.div`
     ${FLEX("flex", "center", null, "column")};
 
     width: 100%;
-    height: 100vh;
-    position: relative;
+    height: 100%;
 
     border-left: 0.3px solid ${({ theme }) => theme.border.solid};
     border-right: 0.3px solid ${({ theme }) => theme.border.solid};

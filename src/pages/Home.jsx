@@ -13,18 +13,18 @@ function Home() {
   const { posts, isLoading, sortBy, postDispatch } = usePostContext();
 
   const currentUser = users?.find(
-    (user) => user.username === authUser.username
+    (user) => user.username === authUser?.username
   );
 
   const followingUsers = currentUser?.following;
 
   const postsOfCurrentUser = posts?.filter(
-    (post) => post.username === currentUser.username
+    (post) => post.username === currentUser?.username
   );
 
   var postsOfFollowingUsers = posts?.filter((post) =>
     followingUsers?.some(
-      (followingUser) => followingUser.username === post.username
+      (followingUser) => followingUser.username === post?.username
     )
   );
 

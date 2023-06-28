@@ -3,7 +3,7 @@ import { FLEX, CLAMP_TEXT } from "src/styles";
 import { Icon } from "src/components/atoms";
 
 const PostContainer = styled.div`
-    ${FLEX("flex", "flex-start", "space-between")};
+    ${FLEX("flex", "flex-start")};
     gap: 1rem;
 
     background-color: ${({ theme }) => theme.bgColor.secondary};
@@ -40,12 +40,17 @@ const PostContent = styled.p`
 `;
 
 const PostMedia = styled.div`
-    display: flex;
-    width: 250px;
+    ${FLEX("flex")};
+    width: 300px;
     height: 300px;
 
-    margin: 0.125rem 0;
     cursor: pointer;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
 `;
 
 const UserActions = styled.div`

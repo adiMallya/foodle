@@ -13,7 +13,7 @@ function Saved() {
 
   useEffect(() => {
     getSavedPosts(authToken, userDispatch);
-  }, [bookmarks]);
+  }, [userDispatch, authToken]);
 
   return (
     <PageLayout>
@@ -24,8 +24,10 @@ function Saved() {
         <div>
           {isLoading ? (
             <Loader />
-          ) : bookmarks?.length ? (
-            bookmarks.map((post) => <PostCard key={post?._id} post={post} />)
+          ) : bookmarks.length ? (
+            [...bookmarks]
+              .reverse()
+              .map((post) => <PostCard key={post?._id} post={post} />)
           ) : (
             <S.NoData>
               <p>You Have Not Saved Any Post</p>
