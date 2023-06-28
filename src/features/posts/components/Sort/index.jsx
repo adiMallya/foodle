@@ -5,7 +5,7 @@ import {
   faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { usePostContext } from "src/contexts";
-import { Button, Icon } from "src/components/atoms";
+import { Button, Icon, Dropdown, DropdownOption } from "src/components/atoms";
 import { ACTIONS } from "src/utils";
 
 import * as S from "./styles";
@@ -29,8 +29,8 @@ const Sort = () => {
           <Icon icon={faArrowUpWideShort} title="Sort" />
         </Button>
         {showDropdown ? (
-          <S.SortDropdown>
-            <S.SortOption
+          <Dropdown>
+            <DropdownOption
               variant="icon"
               style={{ color: sortBy === "Trending" && "#f59e0b" }}
               type="button"
@@ -40,8 +40,8 @@ const Sort = () => {
             >
               <Icon icon={faArrowTrendUp} title="Trending" />{" "}
               <span aria-label="Trending">Trending</span>
-            </S.SortOption>
-            <S.SortOption
+            </DropdownOption>
+            <DropdownOption
               variant="icon"
               style={{ color: sortBy === "Latest" && "#f59e0b" }}
               type="button"
@@ -51,8 +51,8 @@ const Sort = () => {
             >
               <Icon icon={faCaretUp} title="Latest" />{" "}
               <span aria-label="Latest">Latest</span>
-            </S.SortOption>
-            <S.SortOption
+            </DropdownOption>
+            <DropdownOption
               variant="icon"
               style={{ color: sortBy === "Oldest" && "#f59e0b" }}
               type="button"
@@ -62,8 +62,8 @@ const Sort = () => {
             >
               <Icon icon={faCaretDown} title="Oldest" />{" "}
               <span aria-label="Oldest">Oldest</span>
-            </S.SortOption>
-          </S.SortDropdown>
+            </DropdownOption>
+          </Dropdown>
         ) : null}
       </S.SortBar>
     </S.SortContainer>
