@@ -24,6 +24,8 @@ const postReducer = (state, { type, payload }) => {
             };
         case ACTIONS.SORT_BY:
             return { ...state, sortBy: payload };
+        case ACTIONS.SET_LOADING:
+            return { ...state, isLoading: payload };
         case ACTIONS.SET_ERROR:
             return {
                 ...state,

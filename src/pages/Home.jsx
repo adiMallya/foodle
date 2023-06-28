@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import { PageLayout, Loader } from "src/components";
-import { PostCard, Sort, getAllPosts } from "src/features/posts";
+import { CreatePost, PostCard, Sort, getAllPosts } from "src/features/posts";
 import { usePostContext, useAuthContext, useUserContext } from "src/contexts";
 import { sortByType } from "src/utils";
 
@@ -39,6 +39,7 @@ function Home() {
   return (
     <PageLayout>
       <S.Wrapper>
+        <CreatePost />
         <Sort />
         <div>
           {isLoading ? (
