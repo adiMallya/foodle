@@ -13,8 +13,8 @@ const Loader = ({ fullScreen }) => {
               // background: "rgb(241, 242, 243)",
               display: "block",
             }}
-            width="149px"
-            height="149px"
+            width="129px"
+            height="129px"
             viewBox="0 0 100 100"
             preserveAspectRatio="xMidYMid"
           >
