@@ -19,7 +19,7 @@ const PostContent = styled.form`
 
 const TextArea = styled.textarea`
     width: 100%;
-    height: 6rem;
+    max-height: 6rem;
     padding: 0.25rem;
 
     background-color: inherit;
@@ -40,19 +40,24 @@ const TextArea = styled.textarea`
 `;
 
 const PostMedia = styled.div`
-    display: flex;
     width: 250px;
-    height: 300px;
+    height: 250px;
 
     margin: 0.125rem 0;
     position: relative;
     cursor: pointer;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
 `;
 
 const RemoveButton = styled(Button)`
     position: absolute;
-    top: 1;
-    right: 1;
+    top: 0;
+    right: 0;
 `;
 
 const CreatePostActions = styled.div`
@@ -70,6 +75,7 @@ const CreatePostActions = styled.div`
 
 const MediaUploadButton = styled.div`
      label{
+        ${FLEX("flex")};
         margin: 0;
         padding: 0.25rem;
         font-size: ${({ theme }) => theme.font.lg};

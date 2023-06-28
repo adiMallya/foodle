@@ -22,7 +22,7 @@ const CreatePost = ({ editPostData }) => {
   const createPostRef = useRef();
 
   const onMediaUpload = async (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     await uploadMedia(event.target.files[0], setMediaURL);
   };
 
@@ -52,7 +52,7 @@ const CreatePost = ({ editPostData }) => {
           ref={createPostRef}
           name="post_content"
           placeholder="Yumm. What's happening?"
-          defaultValue={editPostData?.content || content}
+          value={editPostData?.content || content}
           maxLength={160}
           onChange={(e) => setContent(e.currentTarget.value)}
         ></S.TextArea>
