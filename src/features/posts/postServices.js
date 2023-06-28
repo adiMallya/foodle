@@ -122,5 +122,36 @@ const dislikePost = async (encodedToken, postId, postDispatch) => {
         console.error(response.data);
     }
 };
+// Cloudinary media upload
+const uploadMedia = async (media, setMediaURL) => {
+    const mediaType = media.type.split("/")[0];
 
-export { getAllPosts, getSinglePost, createPost, editPost, deletePost, likePost, dislikePost };
+    if (mediaType === "video" && Math.round(media.size / 1024000) > 10) {
+        toast.error("Video size should be less than 10MB");
+    } else if (mediaType === "image" && Math.round(media.size / 1024000) > 5) {
+        toast.error("Image size should be less than 5MB");
+    } else {
+        const formData = new FormData();
+
+        formData.append("file", media);
+        formData.append("upload_preset", import.meta.env.VITE_REACT_APP_CLOUDINARY_UPLOAD_PRESET);
+        formData.append("folder", `twizzle-social/posts/${mediaType}s/`);
+
+        const url = mediaType === 'video' ?
+            `${import.meta.env.VITE_REACT_APP_CLOUDINARY_API}/video/upload` :
+            `${import.meta.env.VITE_REACT_APP_CLOUDINARY_API}/image/upload`;
+
+        await fetch(url, {
+            method: "POST",
+            body: formData
+        }).then((res) => res.json()).then((json) => {
+            setMediaURL(json.url);
+            return json.secure_url;
+        }).catch(error => {
+            toast.error("Media upload failed.");
+            console.error(error);
+        });
+    }
+};
+
+export { getAllPosts, getSinglePost, createPost, editPost, deletePost, likePost, dislikePost, uploadMedia };
