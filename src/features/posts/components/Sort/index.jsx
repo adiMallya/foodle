@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import {
   faArrowUpWideShort,
   faArrowTrendUp,
@@ -7,24 +8,28 @@ import {
 import { usePostContext } from "src/contexts";
 import { Button, Icon, Dropdown, DropdownOption } from "src/components/atoms";
 import { ACTIONS } from "src/utils";
+import { useClickOutside } from "src/hooks/useClickOutside";
 
 import * as S from "./styles";
-import { useState } from "react";
 
 const Sort = () => {
   const { sortBy, postDispatch } = usePostContext();
 
   const [showDropdown, setShowDropdown] = useState(false);
 
+  const dropdownRef = useRef();
+
   const selectedOptionHandler = (event) => {
     const selectedOption = event.target.innerText;
     postDispatch({ type: ACTIONS.SORT_BY, payload: selectedOption });
   };
 
+  useClickOutside(dropdownRef, () => setShowDropdown(false));
+
   return (
     <S.SortContainer>
       <span aria-label="Sort Type">{sortBy} Yums</span>
-      <S.SortBar>
+      <S.SortBar ref={dropdownRef}>
         <Button
           variant="icon"
           aria-label="Sort"
