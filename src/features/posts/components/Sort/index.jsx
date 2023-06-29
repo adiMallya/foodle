@@ -16,6 +16,11 @@ const Sort = () => {
 
   const [showDropdown, setShowDropdown] = useState(false);
 
+  const selectedOptionHandler = (event) => {
+    const selectedOption = event.target.innerText;
+    postDispatch({ type: ACTIONS.SORT_BY, payload: selectedOption });
+  };
+
   return (
     <S.SortContainer>
       <span aria-label="Sort Type">{sortBy} Yums</span>
@@ -29,36 +34,24 @@ const Sort = () => {
           <Icon icon={faArrowUpWideShort} title="Sort" />
         </Button>
         {showDropdown ? (
-          <Dropdown>
+          <Dropdown onClick={selectedOptionHandler}>
             <DropdownOption
-              variant="icon"
               style={{ color: sortBy === "Trending" && "#f59e0b" }}
-              type="button"
-              onClick={() =>
-                postDispatch({ type: ACTIONS.SORT_BY, payload: "Trending" })
-              }
+              role="button"
             >
               <Icon icon={faArrowTrendUp} title="Trending" />{" "}
               <span aria-label="Trending">Trending</span>
             </DropdownOption>
             <DropdownOption
-              variant="icon"
               style={{ color: sortBy === "Latest" && "#f59e0b" }}
-              type="button"
-              onClick={() =>
-                postDispatch({ type: ACTIONS.SORT_BY, payload: "Latest" })
-              }
+              role="button"
             >
               <Icon icon={faCaretUp} title="Latest" />{" "}
               <span aria-label="Latest">Latest</span>
             </DropdownOption>
             <DropdownOption
-              variant="icon"
               style={{ color: sortBy === "Oldest" && "#f59e0b" }}
-              type="button"
-              onClick={() =>
-                postDispatch({ type: ACTIONS.SORT_BY, payload: "Oldest" })
-              }
+              role="button"
             >
               <Icon icon={faCaretDown} title="Oldest" />{" "}
               <span aria-label="Oldest">Oldest</span>
