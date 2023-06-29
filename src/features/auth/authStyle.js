@@ -1,8 +1,9 @@
 import { styled } from "styled-components";
 import { FLEX, device } from "src/styles";
-import { RowWrapper, ColumnCenter, Input } from "src/components/atoms";
+import { Input } from "src/components/atoms";
 
-const FormWrapper = styled(ColumnCenter)`
+const FormWrapper = styled.div`
+    ${FLEX("flex", "center", null, "column")}
     margin: 2rem auto;
     padding: 2rem 4rem;
     min-width: 20rem;
@@ -15,7 +16,8 @@ const FormWrapper = styled(ColumnCenter)`
     }
 `;
 
-const FormHeader = styled(ColumnCenter)`
+const FormHeader = styled.div`
+    ${FLEX("flex", "center", "center", "column")}
     > h1{
         font-family: system-ui;
         font-style: italic;
@@ -43,7 +45,8 @@ const FormInput = styled(Input)`
     }
 `;
 
-const InputGroup = styled(RowWrapper)`
+const InputGroup = styled.div`
+    ${FLEX("flex")};
     gap: 0.625rem;
 `;
 

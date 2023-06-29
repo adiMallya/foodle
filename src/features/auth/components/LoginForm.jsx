@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { RowCenter, Button } from "src/components/atoms";
+import { Button } from "src/components/atoms";
 import { useAuthContext } from "src/contexts";
 import { loginService } from "src/features/auth";
 import { ACTIONS } from "src/utils";
@@ -43,7 +43,7 @@ function LoginForm() {
   }, [authToken]);
 
   return (
-    <RowCenter>
+    <div style={{ display: "flex" }}>
       <S.FormWrapper>
         <S.FormHeader>
           <h1 aria-label="Yumspot">Yumspot!</h1>
@@ -95,7 +95,7 @@ function LoginForm() {
           </Button>
         </S.FormFooter>
       </S.FormWrapper>
-    </RowCenter>
+    </div>
   );
 }
 

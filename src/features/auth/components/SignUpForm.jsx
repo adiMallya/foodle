@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { RowCenter, Button } from "src/components/atoms";
+import { Button } from "src/components/atoms";
 import { useAuthContext } from "src/contexts";
 import { useSignUp } from "src/features/auth";
 import { ACTIONS } from "src/utils";
@@ -21,7 +21,7 @@ function SignUpForm() {
   }, [authToken]);
 
   return (
-    <RowCenter>
+    <div style={{ display: "flex" }}>
       <S.FormWrapper>
         <S.FormHeader>
           <h2 aria-label="Sign Up">Sign Up</h2>
@@ -94,7 +94,7 @@ function SignUpForm() {
           </Button>
         </S.FormFooter>
       </S.FormWrapper>
-    </RowCenter>
+    </div>
   );
 }
 
