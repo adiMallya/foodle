@@ -17,7 +17,7 @@ function Explore() {
     <PageLayout>
       <S.Wrapper>
         <S.Header>
-          <h3>Explore To Yum</h3>
+          <h3>Explore</h3>
         </S.Header>
         <div>
           {isLoading ? (

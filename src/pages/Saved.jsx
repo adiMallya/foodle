@@ -19,7 +19,7 @@ function Saved() {
     <PageLayout>
       <S.Wrapper>
         <S.Header>
-          <h3>Saved Posts</h3>
+          <h3>Saved Yums</h3>
         </S.Header>
         <div>
           {isLoading ? (
