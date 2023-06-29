@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import { Button } from "../Button";
 import { FLEX } from "src/styles";
 
 const Dropdown = styled.div`
@@ -14,10 +13,13 @@ const Dropdown = styled.div`
     border-radius: ${({ theme }) => theme.border.roundedMd};
 `;
 
-const DropdownOption = styled(Button)`
-    color: ${({ theme }) => theme.font.color};
+const DropdownOption = styled.div`
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
+    color: ${({ theme }) => theme.font.primary};
     display: flex;
 
+    cursor: pointer;
     span{
         margin-left: 0.625rem;
     }
