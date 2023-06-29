@@ -71,7 +71,7 @@ const deletePost = async (encodedToken, postId, postDispatch) => {
         const {
             status,
             data: { posts }
-        } = await axios.post(
+        } = await axios.delete(
             `${API_URL}/posts/${postId}`,
             { headers: { authorization: encodedToken } }
         );
