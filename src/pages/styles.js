@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { FLEX } from "src/styles";
 
 const Wrapper = styled.div`
-    ${FLEX("flex", "center", null, "column")};
+    ${FLEX("flex", null, null, "column")};
 
     width: 100%;
     height: 100%;
