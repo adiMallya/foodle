@@ -19,6 +19,7 @@ const PostSection = styled.div`
 const PostHeader = styled.div`
     ${FLEX("flex", "center", "space-between")};
     width: 100%;
+    position: relative;
 `;
 
 const PostUser = styled.div`
