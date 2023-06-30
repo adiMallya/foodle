@@ -3,21 +3,20 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { faImage } from "@fortawesome/free-regular-svg-icons";
 import { usePostContext, useAuthContext } from "src/contexts";
 import { createPost, editPost, uploadMedia } from "src/features/posts";
-import { ACTIONS } from "src/utils";
 import { Avatar } from "src/components";
 import { Button, Icon, Input } from "src/components/atoms";
 
 import * as S from "./styles";
 import * as PCS from "../PostCard/styles";
 
-const CreatePost = ({ editPostData }) => {
+const CreatePost = ({ editPostData, setShowModal }) => {
   const { authToken, authUser } = useAuthContext();
   const { postDispatch } = usePostContext();
 
   const [content, setContent] = useState(
-    editPostData ? editPostData.content : ""
+    editPostData ? editPostData?.content : ""
   );
-  const [mediaURL, setMediaURL] = useState(editPostData?.mediaURL || "");
+  const [mediaURL, setMediaURL] = useState("");
 
   const createPostRef = useRef();
 
@@ -35,11 +34,12 @@ const CreatePost = ({ editPostData }) => {
     } else {
       postData = { content, mediaURL };
       createPost(authToken, postData, postDispatch);
+      setContent("");
+      setMediaURL("");
+      createPostRef.current.value = "";
     }
 
-    setContent("");
-    setMediaURL("");
-    createPostRef.current.innerText = "";
+    setShowModal && setShowModal(false);
   };
 
   return (
@@ -52,9 +52,11 @@ const CreatePost = ({ editPostData }) => {
           ref={createPostRef}
           name="post_content"
           placeholder="Yumm. What's happening?"
-          value={editPostData?.content || content}
+          defaultValue={content}
           maxLength={160}
-          onChange={(e) => setContent(e.currentTarget.value)}
+          onChange={(e) => {
+            setContent(e.target.value);
+          }}
         ></S.TextArea>
         {mediaURL ? (
           <S.PostMedia>
@@ -64,8 +66,8 @@ const CreatePost = ({ editPostData }) => {
               size="sm"
               type="button"
               onClick={(e) => {
-                e.preventDefault();
-                setMediaURL(null);
+                e.stopPropagation();
+                setMediaURL("");
               }}
             >
               <Icon icon={faCircleXmark} title="Delete" />
