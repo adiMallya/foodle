@@ -26,13 +26,18 @@ const Header = styled.div`
     opacity: 0.9;
 
     font-weight: ${({ theme }) => theme.font.semibold};
+    font-family: 'Lucida Sans', sans-serif;
     color: ${({ theme }) => theme.font.primary};
 `;
 
 const NoData = styled.div`
-    ${FLEX("flex", "center")};
+    ${FLEX("flex", "center", null, "column")};
     padding: 3rem;
     font-weight: ${({ theme }) => theme.font.semibold};
 `;
 
-export { Wrapper, Header, NoData };
+const PostHeader = styled(Header)`
+    ${FLEX("flex", "center", "flex-start")};
+`;
+
+export { Wrapper, Header, NoData, PostHeader };
