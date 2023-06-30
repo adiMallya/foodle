@@ -80,4 +80,10 @@ const BookmarkIcon = styled(Icon)`
     color: ${({ theme }) => theme.color.success};
 `;
 
-export { PostContainer, PostSection, PostHeader, PostUser, PostDetails, PostContent, PostMedia, UserActions, LikeIcon, BookmarkIcon };
+const MoreOptions = styled.div`
+    padding: 0.5rem 1rem;
+    font-size: 1em;
+    cursor: pointer;
+`;
+
+export { PostContainer, PostSection, PostHeader, PostUser, PostDetails, PostContent, PostMedia, UserActions, LikeIcon, BookmarkIcon, MoreOptions };

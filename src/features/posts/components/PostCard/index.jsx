@@ -1,3 +1,4 @@
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   faEllipsis,
@@ -14,9 +15,10 @@ import { toast } from "react-hot-toast";
 import { useAuthContext, useUserContext, usePostContext } from "src/contexts";
 import { Icon, Button } from "src/components/atoms";
 import { Avatar } from "src/components";
-import { likePost, dislikePost } from "src/features/posts";
+import { likePost, dislikePost, PostOptions } from "src/features/posts";
 import { addToSavedPosts, removeSavedPost } from "src/features/users";
 import { getPostTime, isLikedByUser, isSavedByUser } from "src/utils";
+import { useClickOutside } from "src/hooks/useClickOutside";
 
 import * as S from "./styles";
 
@@ -25,6 +27,10 @@ const PostCard = ({ post }) => {
   const { authToken, authUser } = useAuthContext();
   const { posts, postDispatch } = usePostContext();
   const { users, bookmarks, userDispatch } = useUserContext();
+
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const dropdownRef = useRef();
 
   const currentPost = posts?.find((dbPosts) => dbPosts._id === post?._id);
   const { _id, username, content, mediaURL, createdAt, likes, comments } =
@@ -58,6 +64,8 @@ const PostCard = ({ post }) => {
     });
   };
 
+  useClickOutside(dropdownRef, () => setShowDropdown(false));
+
   return (
     <S.PostContainer>
       <S.PostUser
@@ -70,15 +78,20 @@ const PostCard = ({ post }) => {
       </S.PostUser>
 
       <S.PostSection>
-        <S.PostHeader>
+        <S.PostHeader ref={dropdownRef}>
           <S.PostDetails>
             <span aria-label="Username">@{username}</span>
             <span>·</span>
             <span aria-label="Date">{getPostTime(createdAt)}</span>
           </S.PostDetails>
-          <Button variant="icon" aria-label="Options">
+          <S.MoreOptions
+            aria-label="Options"
+            role="button"
+            onClick={() => setShowDropdown((prev) => !prev)}
+          >
             <Icon icon={faEllipsis} title={"More options"} />
-          </Button>
+            {showDropdown && <PostOptions postId={_id} />}
+          </S.MoreOptions>
         </S.PostHeader>
         <S.PostContent onClick={() => navigate(`/post/${_id}`)}>
           {content}
