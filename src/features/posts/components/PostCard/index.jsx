@@ -32,7 +32,7 @@ const PostCard = ({ post }) => {
 
   const dropdownRef = useRef();
 
-  const currentPost = posts?.find((dbPosts) => dbPosts._id === post?._id);
+  const currentPost = posts?.find((dbPosts) => dbPosts._id === post._id);
   const { _id, username, content, mediaURL, createdAt, likes, comments } =
     currentPost;
 
