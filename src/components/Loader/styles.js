@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const LoaderWrapper = styled.div`
-  background: rgba(255, 255, 255, 0.75);
+  background: ${({ theme }) => theme.bgColor.secondary};
   position: fixed;
   width: 100vw;
   height: 100vh;
