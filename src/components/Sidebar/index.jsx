@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   faHouse,
   faCirclePlus,
@@ -6,6 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useAuthContext, useUserContext } from "src/contexts";
 import { Avatar } from "src/components";
+import { Modal } from "src/components/atoms";
+import { CreatePost } from "src/features/posts";
 
 import * as S from "./styles";
 import * as SS from "../Suggestions/styles";
@@ -13,6 +16,8 @@ import * as SS from "../Suggestions/styles";
 const Sidebar = () => {
   const { authUser } = useAuthContext();
   const { users } = useUserContext();
+
+  const [showModal, setShowModal] = useState(false);
 
   const currentUser = users?.find(
     (user) => user.username === authUser?.username
@@ -34,7 +39,7 @@ const Sidebar = () => {
           </S.Navlink>
         </li>
         <S.CreatePost>
-          <S.Navlink to="#">
+          <S.Navlink to="#" onClick={() => setShowModal((prev) => !prev)}>
             <S.NavIcon icon={faCirclePlus} />
           </S.Navlink>
         </S.CreatePost>
@@ -70,6 +75,9 @@ const Sidebar = () => {
           </S.ProfileLink>
         </li>
       </S.NavLinks>
+      <Modal showModal={showModal} closeModal={() => setShowModal(false)}>
+        <CreatePost />
+      </Modal>
     </S.SidebarContainer>
   );
 };
