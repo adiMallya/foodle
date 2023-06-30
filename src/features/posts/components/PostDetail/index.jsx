@@ -19,11 +19,11 @@ function PostDetail() {
   useEffect(() => {
     postDispatch({ type: ACTIONS.SET_LOADING, payload: true });
     getSinglePost(postId, postDispatch);
-  }, [postId]);
+  }, [postId, postDispatch]);
 
   return (
     <PageLayout>
-      <S.Wrapper>
+      <S.PostPage>
         <S.PostHeader>
           <Button
             variant="icon"
@@ -42,7 +42,7 @@ function PostDetail() {
             <PostCard key={singlePost?._id} post={singlePost} />
           )}
         </div>
-      </S.Wrapper>
+      </S.PostPage>
     </PageLayout>
   );
 }

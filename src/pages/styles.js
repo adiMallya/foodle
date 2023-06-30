@@ -36,8 +36,4 @@ const NoData = styled.div`
     font-weight: ${({ theme }) => theme.font.semibold};
 `;
 
-const PostHeader = styled(Header)`
-    ${FLEX("flex", "center", "flex-start")};
-`;
-
-export { Wrapper, Header, NoData, PostHeader };
+export { Wrapper, Header, NoData };

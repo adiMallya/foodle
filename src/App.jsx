@@ -4,7 +4,8 @@ import { ThemeProvider } from "styled-components";
 import { Toaster } from "react-hot-toast";
 
 import { LoginForm, SignUpForm, PrivateRoute } from "src/features/auth";
-import { Home, Saved, Explore, PostDetail } from "src/pages";
+import { PostDetail } from "src/features/posts";
+import { Home, Saved, Explore } from "src/pages";
 import { GlobalStyles, theme } from "src/styles";
 
 function App() {
