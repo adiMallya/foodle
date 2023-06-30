@@ -61,9 +61,13 @@ const UserActions = styled.div`
     border-top: 1px solid ${({ theme }) => theme.border.solid};
     padding-top: 0.625rem;
 
-    div:first-of-type {
+    div:first-child {
         ${FLEX("flex")};
-        gap: 2rem;
+        gap: 1rem;
+    }
+
+    div:first-child > *{
+        display: inline-block;
     }
 
     span {

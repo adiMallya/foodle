@@ -119,8 +119,8 @@ const PostCard = ({ post }) => {
                   title="Like"
                 />
               </Button>
-              {likes.likeCount > 0 && (
-                <span aria-label="Like Count">{likes.likeCount}</span>
+              {likes?.likeCount > 0 && (
+                <span aria-label="Like Count">{likes?.likeCount}</span>
               )}
             </div>
             <div>
