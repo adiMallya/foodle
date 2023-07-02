@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { initialPostState, postReducer, getAllPosts } from "src/features/posts";
 import { ACTIONS } from "src/utils";
-
+import { toast } from "react-hot-toast";
 const PostContext = createContext({});
 
 const PostProvider = ({ children }) => {
@@ -11,6 +11,8 @@ const PostProvider = ({ children }) => {
     dispatch({ type: ACTIONS.SET_LOADING, payload: true });
     getAllPosts(dispatch);
   }, []);
+
+  if (state?.error) toast.error(state?.error);
 
   return (
     <PostContext.Provider value={{ ...state, postDispatch: dispatch }}>

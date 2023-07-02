@@ -10,7 +10,7 @@ const getAllUsers = async (userDispatch) => {
             userDispatch({ type: ACTIONS.SET_USERS, payload: users });
         }
     } catch ({ response }) {
-        toast.error('Something went wrong.');
+        userDispatch({ type: ACTIONS.SET_USERS, payload: response?.data?.error });
         console.error(response.data);
     }
 };
@@ -83,7 +83,7 @@ const getSavedPosts = async (encodedToken, userDispatch) => {
             userDispatch({ type: ACTIONS.SET_BOOKMARKS, payload: bookmarks });
         }
     } catch ({ response }) {
-        toast.error(response.data?.errors);
+        userDispatch({ type: ACTIONS.SET_BOOKMARKS, payload: response.data?.errors });
         console.error(response.data);
     }
 };
