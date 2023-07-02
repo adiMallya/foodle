@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { PageLayout, Loader } from "src/components";
 import { CreatePost, PostCard, Sort, getAllPosts } from "src/features/posts";
 import { usePostContext, useAuthContext, useUserContext } from "src/contexts";
@@ -7,8 +8,18 @@ import * as S from "./styles";
 
 function Home() {
   const { authUser } = useAuthContext();
-  const { users, isLoading: waitingForUsers } = useUserContext();
-  const { posts, sortBy, isLoading: waitingForPosts } = usePostContext();
+  const { users, isLoading: waitingForUsers, userDispatch } = useUserContext();
+  const {
+    posts,
+    sortBy,
+    isLoading: waitingForPosts,
+    postDispatch,
+  } = usePostContext();
+
+  useEffect(() => {
+    // getAllUsers(userDispatch);
+    getAllPosts(postDispatch);
+  }, [postDispatch]);
 
   const currentUser = users?.find(
     (user) => user.username === authUser.username
@@ -30,7 +41,6 @@ function Home() {
 
   const sortedPosts = sortByType(userFeed, sortBy);
 
-  if (waitingForPosts || waitingForUsers) return <Loader fullScreen="true" />;
   return (
     <PageLayout>
       <S.Wrapper>
@@ -40,7 +50,7 @@ function Home() {
         <CreatePost />
         <Sort />
         <div>
-          {waitingForPosts ? (
+          {waitingForPosts || waitingForUsers ? (
             <Loader />
           ) : sortedPosts?.length ? (
             [...sortedPosts]
