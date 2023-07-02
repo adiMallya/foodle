@@ -34,7 +34,7 @@ const updateProfile = async (encodedToken, userData) => {
     }
 };
 
-const followUser = async (followId, encodedToken, userDispatch) => {
+const followUser = async (followId, encodedToken, authDispatch) => {
     try {
         const {
             status,
@@ -44,16 +44,17 @@ const followUser = async (followId, encodedToken, userDispatch) => {
             { headers: { authorization: encodedToken } }
         );
         if (status === 200) {
-            return { user, followUser };
+            authDispatch({ type: ACTIONS.SET_USER, payload: user });
+            toast.success(`You started following ${followUser?.username}.`);
         }
 
     } catch ({ response }) {
-        userDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
-        console.error(response.data);
+        authDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
+        console.error(response.data?.errors);
     }
 };
 
-const unfollowUser = async (followId, encodedToken, userDispatch) => {
+const unfollowUser = async (followId, encodedToken, authDispatch) => {
     try {
         const {
             status,
@@ -63,11 +64,12 @@ const unfollowUser = async (followId, encodedToken, userDispatch) => {
             { headers: { authorization: encodedToken } }
         );
         if (status === 200) {
-            return { user, followUser };
+            authDispatch({ type: ACTIONS.SET_USER, payload: user });
+            toast.success(`You unfollowed ${followUser?.username}.`);
         }
     } catch ({ response }) {
-        userDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
-        console.error(response.data);
+        authDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
+        console.error(response.data?.errors);
     }
 };
 

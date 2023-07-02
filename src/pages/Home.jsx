@@ -8,7 +8,7 @@ import * as S from "./styles";
 
 function Home() {
   const { authUser } = useAuthContext();
-  const { users, isLoading: waitingForUsers, userDispatch } = useUserContext();
+  const { users, isLoading: waitingForUsers } = useUserContext();
   const {
     posts,
     sortBy,
@@ -17,7 +17,6 @@ function Home() {
   } = usePostContext();
 
   useEffect(() => {
-    // getAllUsers(userDispatch);
     getAllPosts(postDispatch);
   }, [postDispatch]);
 
