@@ -6,7 +6,7 @@ import { Icon, Button } from "src/components/atoms";
 import { PageLayout, Loader } from "src/components";
 import { usePostContext } from "src/contexts";
 import { ACTIONS } from "src/utils";
-import { getSinglePost, PostCard } from "src/features/posts";
+import { getSinglePost, PostCard, CommentCard } from "src/features/posts";
 
 import * as S from "./styles";
 
@@ -17,7 +17,6 @@ function PostDetail() {
   const { singlePost, postDispatch, isLoading } = usePostContext();
 
   useEffect(() => {
-    postDispatch({ type: ACTIONS.SET_LOADING, payload: true });
     getSinglePost(postId, postDispatch);
     return () => postDispatch({ type: ACTIONS.SET_SINGLE_POST, payload: {} });
   }, [postId, postDispatch]);
@@ -45,6 +44,10 @@ function PostDetail() {
             )
           )}
         </div>
+        {singlePost?.comments?.length &&
+          [...singlePost.comments].map((comment) => (
+            <CommentCard key={comment?._id} comment={comment} />
+          ))}
       </S.PostPage>
     </PageLayout>
   );
