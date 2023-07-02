@@ -5,10 +5,10 @@ const Wrapper = styled.div`
     ${FLEX("flex", "flex-start", null, "column")};
     gap: 1.5rem;
     height: max-content;
-    margin-top: 3rem;
+    margin-top: 4rem;
     padding: 0.85rem 1.1rem;
     border-radius: ${({ theme }) => theme.border.roundedMd};
-    position: sticky;
+    position: fixed;
     background-color: ${({ theme }) => theme.bgColor.secondary};
 `;
 

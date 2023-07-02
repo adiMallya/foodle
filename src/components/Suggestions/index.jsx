@@ -31,7 +31,9 @@ const Suggestions = () => {
         >
           <Avatar user={user} />
           <S.UserDesc>
-            <S.UserFullName>{user?.firstName + user?.lastName}</S.UserFullName>
+            <S.UserFullName>
+              {user?.firstName + " " + user?.lastName}
+            </S.UserFullName>
             <S.UserName>@{user?.username}</S.UserName>
           </S.UserDesc>
           <Button rounded="true" size="sm">
