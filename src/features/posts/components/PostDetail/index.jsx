@@ -17,6 +17,7 @@ function PostDetail() {
   const { singlePost, postDispatch, isLoading } = usePostContext();
 
   useEffect(() => {
+    postDispatch({ type: ACTIONS.SET_LOADING, payload: true });
     getSinglePost(postId, postDispatch);
     return () => postDispatch({ type: ACTIONS.SET_SINGLE_POST, payload: {} });
   }, [postId, postDispatch]);
