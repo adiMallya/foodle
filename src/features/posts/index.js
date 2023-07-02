@@ -5,3 +5,4 @@ export { PostCard } from "./components/PostCard";
 export { Sort } from "./components/Sort";
 export { PostOptions } from "./components/PostOptions";
 export { PostDetail } from "./components/PostDetail";
+export { CommentCard } from "./components/CommentCard";
