@@ -66,10 +66,6 @@ export const users = [
         _id: "1T6Be1QpLm", username: "josephtess", profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686425022/twizzle-social/avatars/fill-364x243_7Cformat-webp_7Cwebpquality-70_cg96lr.webp"
       },
-      {
-        _id: "t7cZfWIq-a", username: "amallya", profileAvatar:
-          "https://res.cloudinary.com/dtaztriby/image/upload/v1686424977/twizzle-social/avatars/drew-hays-Kt8eGw8_S8Y-unsplash-scaled-e1664855431566.jpg_fch6nr.webp"
-      },
     ],
   },
   {
@@ -95,6 +91,10 @@ export const users = [
         _id: "t7cZfWIp-q", username: "johndoe", profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/1373242_prl159.jpg"
       },
+      {
+        _id: "t7cZfWIq-a", username: "amallya", profileAvatar:
+          "https://res.cloudinary.com/dtaztriby/image/upload/v1686424977/twizzle-social/avatars/drew-hays-Kt8eGw8_S8Y-unsplash-scaled-e1664855431566.jpg_fch6nr.webp"
+      },
     ],
   },
   {
@@ -115,10 +115,6 @@ export const users = [
       {
         _id: "t7cZfWIp-q", username: "johndoe", profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/1373242_prl159.jpg"
-      },
-      {
-        _id: "t7cZfWIq-a", username: "amallya", profileAvatar:
-          "https://res.cloudinary.com/dtaztriby/image/upload/v1686424977/twizzle-social/avatars/drew-hays-Kt8eGw8_S8Y-unsplash-scaled-e1664855431566.jpg_fch6nr.webp"
       },
       {
         _id: "79Gksh9otl", username: "vo_thong", profileAvatar:
