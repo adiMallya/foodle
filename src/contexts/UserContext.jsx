@@ -15,7 +15,8 @@ const UserProvider = ({ children }) => {
 
   useEffect(() => {
     if (state?.error) toast.error(state?.error);
-  }, [state]);
+    return () => dispatch({ type: ACTIONS.SET_ERROR, payload: null });
+  }, [state?.error]);
 
   return (
     <UserContext.Provider value={{ ...state, userDispatch: dispatch }}>
