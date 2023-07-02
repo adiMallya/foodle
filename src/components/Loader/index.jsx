@@ -13,8 +13,8 @@ const Loader = ({ fullScreen }) => {
               // background: "rgb(241, 242, 243)",
               display: "block",
             }}
-            width="149px"
-            height="149px"
+            width="129px"
+            height="129px"
             viewBox="0 0 100 100"
             preserveAspectRatio="xMidYMid"
           >
@@ -25,7 +25,7 @@ const Loader = ({ fullScreen }) => {
               strokeDasharray="25.658892822265624 25.658892822265624"
               d="M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40 C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z"
               strokeLinecap="round"
-              style="transform:scale(0.8);transform-origin:50px 50px"
+              style={{ transform: "scale(0.8)", transformOrigin: "50px 50px" }}
             >
               <animate
                 attributeName="stroke-dashoffset"
@@ -58,7 +58,7 @@ const Loader = ({ fullScreen }) => {
             strokeDasharray="25.658892822265624 25.658892822265624"
             d="M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40 C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z"
             strokeLinecap="round"
-            style="transform:scale(0.8);transform-origin:50px 50px"
+            style={{ transform: "scale(0.8)", transformOrigin: "50px 50px" }}
           >
             <animate
               attributeName="stroke-dashoffset"

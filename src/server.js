@@ -87,6 +87,12 @@ export function makeServer({ environment = "development" } = {}) {
         "/users/unfollow/:followUserId/",
         unfollowUserHandler.bind(this)
       );
+      //any other routes/URLs 
+      this.passthrough(
+        `${import.meta.env.VITE_REACT_APP_CLOUDINARY_API}/image/upload`,
+        `${import.meta.env.VITE_REACT_APP_CLOUDINARY_API}/video/upload`,
+        ["post"]
+      );
     },
   });
 }

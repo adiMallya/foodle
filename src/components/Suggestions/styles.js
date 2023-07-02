@@ -2,30 +2,30 @@ import { styled } from "styled-components";
 import { FLEX } from "src/styles";
 
 const Wrapper = styled.div`
-    ${FLEX("flex", "flex-start", "center", "column")};
+    ${FLEX("flex", "flex-start", null, "column")};
     gap: 1.5rem;
     height: max-content;
-    margin-top: 2.5rem;
-    padding: 0.85rem 1.2rem;
+    margin-top: 3rem;
+    padding: 0.85rem 1.1rem;
     border-radius: ${({ theme }) => theme.border.roundedMd};
     position: sticky;
     background-color: ${({ theme }) => theme.bgColor.secondary};
 `;
 
 const ListTitle = styled.p`
-    font-size: ${({ theme }) => theme.font.md};
+    font-size: ${({ theme }) => theme.font.sm};
     font-weight: ${({ theme }) => theme.font.bold};
 `;
 
 const UserCard = styled.div`
-    ${FLEX("flex", "flex-start", "space-between")};
-    gap: 2rem;
+    ${FLEX("flex", "center", "center")};
+    gap: 1rem;
     width: 100%;
     cursor: pointer;
 `;
 
 const UserDesc = styled.div`
-    ${FLEX("flex", null, "center", "column")};
+    ${FLEX("flex", "flex-start", null, "column")};
     width: 100%;
 `;
 

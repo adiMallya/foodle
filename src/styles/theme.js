@@ -7,6 +7,7 @@ const colors = {
     },
 
     gray: {
+        500: "#52525b",
         400: "#9ca3af",
         300: "#d1d5db",
         200: "#e5e7eb",
@@ -92,7 +93,7 @@ let theme = {
         roundedMd: radii[1],
         roundedLg: radii[2],
         roundedXl: radii[3],
-        solid: colors.gray[200],
+        solid: colors.gray[500],
     },
 
     bgColor: {

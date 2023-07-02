@@ -10,7 +10,7 @@ const getAllUsers = async (userDispatch) => {
             userDispatch({ type: ACTIONS.SET_USERS, payload: users });
         }
     } catch ({ response }) {
-        toast.error('Something went wrong.');
+        userDispatch({ type: ACTIONS.SET_USERS, payload: response?.data?.error });
         console.error(response.data);
     }
 };
@@ -29,12 +29,12 @@ const updateProfile = async (encodedToken, userData) => {
             return user;
         }
     } catch ({ response }) {
-        toast.error(response.data);
+        toast.error(response.data?.errors);
         console.error(response.data);
     }
 };
 
-const followUser = async (followId, encodedToken) => {
+const followUser = async (followId, encodedToken, userDispatch) => {
     try {
         const {
             status,
@@ -48,12 +48,12 @@ const followUser = async (followId, encodedToken) => {
         }
 
     } catch ({ response }) {
-        toast.error(response.data);
+        userDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
         console.error(response.data);
     }
 };
 
-const unfollowUser = async (followId, encodedToken) => {
+const unfollowUser = async (followId, encodedToken, userDispatch) => {
     try {
         const {
             status,
@@ -66,7 +66,7 @@ const unfollowUser = async (followId, encodedToken) => {
             return { user, followUser };
         }
     } catch ({ response }) {
-        toast.error(response.data);
+        userDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
         console.error(response.data);
     }
 };
@@ -83,7 +83,7 @@ const getSavedPosts = async (encodedToken, userDispatch) => {
             userDispatch({ type: ACTIONS.SET_BOOKMARKS, payload: bookmarks });
         }
     } catch ({ response }) {
-        toast.error(response.data);
+        userDispatch({ type: ACTIONS.SET_BOOKMARKS, payload: response.data?.errors });
         console.error(response.data);
     }
 };
@@ -93,14 +93,14 @@ const addToSavedPosts = async (postId, encodedToken, userDispatch) => {
         const {
             status,
             data: { bookmarks }
-        } = await axios.post(`${API_URL}/users/bookmark/${postId}`,
+        } = await axios.post(`${API_URL}/users/bookmark/${postId}`, {},
             { headers: { authorization: encodedToken } }
         );
         if (status === 200) {
             userDispatch({ type: ACTIONS.SET_BOOKMARKS, payload: bookmarks });
         }
     } catch ({ response }) {
-        toast.error(response.data);
+        userDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
         console.error(response.data);
     }
 };
@@ -110,14 +110,14 @@ const removeSavedPost = async (postId, encodedToken, userDispatch) => {
         const {
             status,
             data: { bookmarks }
-        } = await axios.post(`${API_URL}/users/remove-bookmark/${postId}`,
+        } = await axios.post(`${API_URL}/users/remove-bookmark/${postId}`, {},
             { headers: { authorization: encodedToken } }
         );
         if (status === 200) {
             userDispatch({ type: ACTIONS.SET_BOOKMARKS, payload: bookmarks });
         }
     } catch ({ response }) {
-        toast.error(response.data);
+        userDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
         console.error(response.data);
     }
 };

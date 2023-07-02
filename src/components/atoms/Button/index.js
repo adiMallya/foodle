@@ -50,12 +50,6 @@ const variants = {
 
     icon: css`
         background-color: transparent;
-        ${(p) => p.hoverIcon && css`
-            &:hover {
-                background: ${p.hoverIcon};
-                border-radius: 9999px;
-            }
-        `}
     `,
 
     default: css`
@@ -73,7 +67,6 @@ export const Button = styled.button`
     background-color: transparent;
     border: none;
     margin: ${({ m }) => `${m}rem` || 0};
-    padding: 0.5rem 1rem;
     text-decoration: none;
     text-align: center;
     font-weight: ${({ theme }) => theme.font.semibold};
