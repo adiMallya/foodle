@@ -27,7 +27,9 @@ export const posts = [
         _id: "okzxcf",
         comment:
           "Damn! Gotta grab this soon.",
-        username: "bubblyme",
+        username: "josephtess",
+        firstName: "Tess",
+        lastName: "Joesph",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686425022/twizzle-social/avatars/fill-364x243_7Cformat-webp_7Cwebpquality-70_cg96lr.webp",
         createdAt: formatDate(),
@@ -42,6 +44,8 @@ export const posts = [
         comment:
           "Wow!",
         username: "v_thong",
+        firstName: "Thong",
+        lastName: "Vo",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/20221023121016-635569a0de3f8345fb573ce3jpeg_kxznr8.webp",
         createdAt: formatDate(),
@@ -77,6 +81,8 @@ export const posts = [
         comment:
           "Nice!",
         username: "johndoe",
+        firstName: "John",
+        lastName: "Doe",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/1373242_prl159.jpg",
         createdAt: "2022-05-11",
@@ -108,7 +114,8 @@ export const posts = [
       dislikedBy: [],
     },
     username: "vo_thong",
-    fullName: "Thong Vo",
+    firstName: "Thong",
+    lastName: "Vo",
     comments: [],
     createdAt: "2022-04-20",
     updatedAt: formatDate(),
@@ -134,6 +141,8 @@ export const posts = [
         comment:
           "Nice!",
         username: "vo_thong",
+        firstName: "Thong",
+        lastName: "Vo",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/20221023121016-635569a0de3f8345fb573ce3jpeg_kxznr8.webp",
         createdAt: formatDate(),
@@ -147,7 +156,9 @@ export const posts = [
         _id: "aXLkT4zR9n",
         comment:
           "Yummmmmmm.",
-        username: "bubblyme",
+        username: "josephtess",
+        firstName: "Tess",
+        lastName: "Joesph",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686425022/twizzle-social/avatars/fill-364x243_7Cformat-webp_7Cwebpquality-70_cg96lr.webp",
         createdAt: formatDate(),
@@ -197,6 +208,8 @@ export const posts = [
         comment:
           "Cafe Madras and Koolar & Co in Matunga!",
         username: "vo_thong",
+        firstName: "Thong",
+        lastName: "Vo",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/20221023121016-635569a0de3f8345fb573ce3jpeg_kxznr8.webp",
         createdAt: formatDate(),
@@ -212,6 +225,8 @@ export const posts = [
           `Veronica's in Bandra for your burger's, Prakash at Dadar 
           for autentic mumbai food AND Noor Mohammadi in Mohammed Ali road!`,
         username: "amallya",
+        firstName: "Adithya",
+        lastName: "Mallya",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424977/twizzle-social/avatars/drew-hays-Kt8eGw8_S8Y-unsplash-scaled-e1664855431566.jpg_fch6nr.webp",
         createdAt: formatDate(),

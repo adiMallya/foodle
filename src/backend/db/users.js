@@ -34,7 +34,7 @@ export const users = [
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/1373242_prl159.jpg"
       },
       {
-        _id: uuid(), username: "bubblyme", profileAvatar:
+        _id: uuid(), username: "josephtess", profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686425022/twizzle-social/avatars/fill-364x243_7Cformat-webp_7Cwebpquality-70_cg96lr.webp"
       },
       {
@@ -61,13 +61,13 @@ export const users = [
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/20221023121016-635569a0de3f8345fb573ce3jpeg_kxznr8.webp"
       },
       {
-        _id: uuid(), username: "bubblyme", profileAvatar:
+        _id: uuid(), username: "josephtess", profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686425022/twizzle-social/avatars/fill-364x243_7Cformat-webp_7Cwebpquality-70_cg96lr.webp"
       },
     ],
     followers: [
       {
-        _id: uuid(), username: "bubblyme", profileAvatar:
+        _id: uuid(), username: "josephtess", profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686425022/twizzle-social/avatars/fill-364x243_7Cformat-webp_7Cwebpquality-70_cg96lr.webp"
       },
       {
