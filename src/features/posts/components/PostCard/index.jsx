@@ -36,9 +36,7 @@ const PostCard = ({ post }) => {
   const { _id, username, content, mediaURL, createdAt, likes, comments } =
     currentPost;
 
-  const currentUser = users?.find(
-    (user) => user.username === currentPost.username
-  );
+  const currentUser = users?.find((user) => user.username === post.username);
 
   const likeBtnHandler = (event) => {
     event.stopPropagation();
@@ -57,7 +55,7 @@ const PostCard = ({ post }) => {
   const shareBtnHandler = (event) => {
     event.stopPropagation();
     navigator.clipboard.writeText(
-      `https://yumspot.vercel.app/post/${currentPost._id}`
+      `https://yumspot.vercel.app/post/${currentPost?._id}`
     );
     toast.success("Link Copied. Start Sharing!", {
       iconTheme: { color: "#f59e0b" },
@@ -71,7 +69,7 @@ const PostCard = ({ post }) => {
       <S.PostUser
         onClick={(e) => {
           e.stopPropagation();
-          navigate(`/profile/${_id}`);
+          navigate(`/profile/${username}`);
         }}
       >
         <Avatar user={currentUser} />
@@ -93,7 +91,7 @@ const PostCard = ({ post }) => {
             {showDropdown && <PostOptions postId={_id} />}
           </S.MoreOptions>
         </S.PostHeader>
-        <S.PostContent onClick={() => navigate(`/post/${_id}`)}>
+        <S.PostContent onClick={() => navigate(`/post/${username}`)}>
           {content}
         </S.PostContent>
         {mediaURL ? (
@@ -124,7 +122,12 @@ const PostCard = ({ post }) => {
               )}
             </div>
             <div>
-              <Button variant="icon" size="sm" aria-label="Comment">
+              <Button
+                variant="icon"
+                size="sm"
+                aria-label="Comment"
+                onClick={() => navigate(`/post/${_id}`)}
+              >
                 <Icon icon={faMessage} title="Comment" />
               </Button>
               {comments?.length > 0 && (
