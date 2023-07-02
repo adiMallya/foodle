@@ -61,11 +61,10 @@ const RemoveButton = styled(Button)`
 `;
 
 const CreatePostActions = styled.div`
-    ${FLEX("flex", null, "space-between")};
+    ${FLEX("flex", "center", "space-between")};
 
     width: 100%;
     border-top: 1px solid ${({ theme }) => theme.border.solid};
-    padding-top: 0.625rem;
 
     div:first-of-type {
         ${FLEX("flex")};
@@ -75,9 +74,8 @@ const CreatePostActions = styled.div`
 
 const MediaUploadButton = styled.div`
      label{
-        ${FLEX("flex")};
+        ${FLEX("flex", "center")};
         margin: 0;
-        padding: 0.25rem;
         font-size: ${({ theme }) => theme.font.lg};
         cursor: pointer;
      }
