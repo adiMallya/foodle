@@ -17,8 +17,8 @@ function PostDetail() {
   const { singlePost, postDispatch, isLoading } = usePostContext();
 
   useEffect(() => {
-    postDispatch({ type: ACTIONS.SET_LOADING, payload: true });
     getSinglePost(postId, postDispatch);
+    return () => postDispatch({ type: ACTIONS.SET_SINGLE_POST, payload: {} });
   }, [postId, postDispatch]);
 
   return (
@@ -39,7 +39,9 @@ function PostDetail() {
           {isLoading ? (
             <Loader />
           ) : (
-            <PostCard key={singlePost?._id} post={singlePost} />
+            singlePost?._id && (
+              <PostCard key={singlePost?._id} post={singlePost} />
+            )
           )}
         </div>
       </S.PostPage>

@@ -2,7 +2,7 @@ import { ACTIONS } from "src/utils";
 
 const initialPostState = {
     posts: [],
-    singlePost: null,
+    singlePost: {},
     sortBy: "Latest",
     isLoading: true,
     error: null
