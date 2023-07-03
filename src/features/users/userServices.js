@@ -10,8 +10,8 @@ const getAllUsers = async (userDispatch) => {
             userDispatch({ type: ACTIONS.SET_USERS, payload: users });
         }
     } catch ({ response }) {
-        userDispatch({ type: ACTIONS.SET_ERROR, payload: response?.data?.error });
-        console.error(response.data);
+        userDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
+        console.error(response.data?.errors);
     }
 };
 
@@ -85,8 +85,8 @@ const getSavedPosts = async (encodedToken, userDispatch) => {
             userDispatch({ type: ACTIONS.SET_BOOKMARKS, payload: bookmarks });
         }
     } catch ({ response }) {
-        userDispatch({ type: ACTIONS.SET_BOOKMARKS, payload: response.data?.errors });
-        console.error(response.data);
+        userDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
+        console.error(response.data?.errors);
     }
 };
 
@@ -103,7 +103,7 @@ const addToSavedPosts = async (postId, encodedToken, userDispatch) => {
         }
     } catch ({ response }) {
         userDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
-        console.error(response.data);
+        console.error(response.data?.errors);
     }
 };
 
@@ -120,7 +120,7 @@ const removeSavedPost = async (postId, encodedToken, userDispatch) => {
         }
     } catch ({ response }) {
         userDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
-        console.error(response.data);
+        console.error(response.data?.errors);
     }
 };
 
