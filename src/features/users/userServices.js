@@ -10,7 +10,7 @@ const getAllUsers = async (userDispatch) => {
             userDispatch({ type: ACTIONS.SET_USERS, payload: users });
         }
     } catch ({ response }) {
-        userDispatch({ type: ACTIONS.SET_USERS, payload: response?.data?.error });
+        userDispatch({ type: ACTIONS.SET_ERROR, payload: response?.data?.error });
         console.error(response.data);
     }
 };
