@@ -1,9 +1,32 @@
-import { styled } from "styled-components";
+import { styled, css } from "styled-components";
 import { FLEX } from "src/styles";
 
+const size = {
+    sm: css`
+        height: 2rem;
+        width: 2rem;
+    `,
+
+    md: css`
+        height: 4rem;
+        width: 4rem;
+    `,
+
+    lg: css`
+        height: 8rem;
+        width: 8rem;
+    `,
+
+    default: css`
+        height: 2rem;
+        width: 2rem;
+    `
+};
+
+const getSize = (p) => size[p.size] || size.default;
+
 const AvatarWrapper = styled.span`
-    height: 2rem;
-    width: 2rem;
+    ${(p) => getSize(p)};
     border-radius: 50%;
     overflow: hidden;
 
