@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.div`
-    ${FLEX("flex", "center", "center")};
+    ${({ align }) => align === 'left' ? FLEX("flex", "center", "flex-start") : FLEX("flex", "center", "center")};
     padding: 1rem 0.625rem;
     border: 0.3px solid ${({ theme }) => theme.border.solid};
     

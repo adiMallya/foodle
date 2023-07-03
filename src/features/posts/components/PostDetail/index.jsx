@@ -8,7 +8,7 @@ import { usePostContext } from "src/contexts";
 import { ACTIONS } from "src/utils";
 import { getSinglePost, PostCard, CommentCard } from "src/features/posts";
 
-import * as S from "./styles";
+import { Wrapper, Header } from "src/pages/styles";
 
 function PostDetail() {
   const { postId } = useParams();
@@ -23,8 +23,8 @@ function PostDetail() {
 
   return (
     <PageLayout>
-      <S.PostPage>
-        <S.PostHeader>
+      <Wrapper>
+        <Header align="left">
           <Button
             variant="icon"
             aria-label="Back button"
@@ -34,7 +34,7 @@ function PostDetail() {
             <Icon icon={faArrowLeftLong} title="Back" />
           </Button>
           <h3>Post</h3>
-        </S.PostHeader>
+        </Header>
         <div>
           {isLoading ? (
             <Loader />
@@ -48,7 +48,7 @@ function PostDetail() {
           [...singlePost.comments].map((comment) => (
             <CommentCard key={comment?._id} comment={comment} />
           ))}
-      </S.PostPage>
+      </Wrapper>
     </PageLayout>
   );
 }
