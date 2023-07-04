@@ -13,7 +13,7 @@ export const users = [
     username: "amallya",
     password: "P@ssw0rd",
     bio: "Busy at work.",
-    website: "https://www.adim@llya.com",
+    website: "https://github.com/adiMallya",
     profileAvatar: "https://res.cloudinary.com/dtaztriby/image/upload/v1686424977/twizzle-social/avatars/drew-hays-Kt8eGw8_S8Y-unsplash-scaled-e1664855431566.jpg_fch6nr.webp",
     createdAt: formatDate(),
     updatedAt: formatDate(),
