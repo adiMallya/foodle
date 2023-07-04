@@ -21,7 +21,7 @@ const Header = styled.div`
     z-index: ${({ theme }) => theme.z[7]};
     width: 100%;
 
-    background-color: ${({ theme }) => theme.bgColor.primary};
+    background-color: ${({ theme }) => theme.bgColor.secondary};
     -webkit-backdrop-filter: blur(8px);
     opacity: 0.9;
 
