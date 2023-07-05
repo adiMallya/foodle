@@ -15,7 +15,7 @@ const getAllUsers = async (userDispatch) => {
     }
 };
 
-const updateProfile = async (encodedToken, userData) => {
+const updateProfile = async (encodedToken, userData, authDispatch) => {
     try {
         const {
             status,
@@ -26,7 +26,8 @@ const updateProfile = async (encodedToken, userData) => {
             { headers: { authorization: encodedToken } }
         );
         if (status === 201) {
-            return user;
+            authDispatch({ type: ACTIONS.SET_USER, payload: user });
+            toast.success('Profile updated.');
         }
     } catch ({ response }) {
         toast.error(response.data?.errors);
@@ -123,6 +124,28 @@ const removeSavedPost = async (postId, encodedToken, userDispatch) => {
         console.error(response.data?.errors);
     }
 };
+// Cloudinary media upload
+const uploadAvatar = async (media) => {
+    if (Math.round(media.size / 1024000) > 5) {
+        toast.error("Image size should be less than 5MB");
+    } else {
+        const formData = new FormData();
+
+        formData.append("file", media);
+        formData.append("upload_preset", import.meta.env.VITE_REACT_APP_CLOUDINARY_UPLOAD_PRESET);
+        formData.append("folder", `twizzle-social/avatars/`);
+
+        await fetch(`${import.meta.env.VITE_REACT_APP_CLOUDINARY_API}/image/upload`, {
+            method: "POST",
+            body: formData
+        }).then((res) => res.json()).then((json) => {
+            return json.url;
+        }).catch(error => {
+            toast.error("Avatar upload failed.");
+            console.error(error);
+        });
+    }
+};
 
 
-export { getAllUsers, updateProfile, followUser, unfollowUser, getSavedPosts, addToSavedPosts, removeSavedPost };
+export { getAllUsers, updateProfile, followUser, unfollowUser, getSavedPosts, addToSavedPosts, removeSavedPost, uploadAvatar };
