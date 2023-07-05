@@ -20,6 +20,7 @@ const ModalContent = styled.div`
     min-width: 24rem;
     max-height: fit-content;
     padding: 0.625rem;
+    border: 1px solid ${({ theme }) => theme.border.solid};
     border-radius: ${({ theme }) => theme.border.roundedMd};
     background-color: ${({ theme }) => theme.bgColor.secondary};
     user-select: none;
