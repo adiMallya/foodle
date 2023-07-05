@@ -1,18 +1,26 @@
+import { useState } from "react";
 import {
   faArrowRightFromBracket,
   faLink,
 } from "@fortawesome/free-solid-svg-icons";
 import { useAuthContext, useUserContext } from "src/contexts";
-import { Button, Icon } from "src/components/atoms";
+import { Button, Icon, Modal } from "src/components/atoms";
 import { Avatar } from "src/components";
 import { ACTIONS } from "src/utils";
-import { followUser, unfollowUser, getAllUsers } from "src/features/users";
+import {
+  followUser,
+  unfollowUser,
+  getAllUsers,
+  EditDetails,
+} from "src/features/users";
 
 import * as S from "./styles";
 
 const UserDetails = ({ currentUser }) => {
   const { authToken, authUser, authDispatch } = useAuthContext();
   const { userDispatch } = useUserContext();
+
+  const [editModal, setEditModal] = useState(false);
 
   const {
     _id,
@@ -35,6 +43,7 @@ const UserDetails = ({ currentUser }) => {
 
     switch (buttonType) {
       case "Edit":
+        setEditModal((prev) => !prev);
         return;
       case "Follow":
         followUser(currentUser?._id, authToken, userDispatch);
@@ -106,6 +115,9 @@ const UserDetails = ({ currentUser }) => {
           )}
         </S.UserAction>
       </S.ProfileSection>
+      <Modal showModal={editModal} closeModal={() => setEditModal(false)}>
+        <EditDetails user={currentUser} setEditModal={setEditModal} />
+      </Modal>
     </S.ProfileWrapper>
   );
 };

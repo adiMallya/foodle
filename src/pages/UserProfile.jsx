@@ -16,7 +16,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     getAllUsers(userDispatch);
-  }, [userName]);
+  }, [userName, users]);
 
   const currentUser = users?.find((user) => user.username === userName);
   const currentUserPosts = posts?.filter((post) => post.username === userName);
