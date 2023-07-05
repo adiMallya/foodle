@@ -1,9 +1,12 @@
 import { useRef } from "react";
-import * as S from "./styles";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Icon, Button } from "src/components/atoms";
 import { useClickOutside } from "src/hooks/useClickOutside";
 
+import * as S from "./styles";
+
 const Modal = (props) => {
-  const { showModal, closeModal, children } = props;
+  const { showModal, closeModal, title, children } = props;
   const modalRef = useRef();
 
   useClickOutside(modalRef, closeModal);
@@ -11,7 +14,15 @@ const Modal = (props) => {
   if (!showModal) return null;
   return (
     <S.ModalWrapper>
-      <S.ModalContent ref={modalRef}>{children}</S.ModalContent>
+      <S.ModalContent ref={modalRef}>
+        <S.ModalHeader>
+          {title ? <span>{title}</span> : null}
+          <Button variant="icon" onClick={closeModal}>
+            <Icon icon={faXmark} title="Close" />
+          </Button>
+        </S.ModalHeader>
+        {children}
+      </S.ModalContent>
     </S.ModalWrapper>
   );
 };
