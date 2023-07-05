@@ -4,7 +4,10 @@ import { Input, Icon, Button } from "src/components/atoms";
 import { Avatar } from "src/components";
 import { useUserContext, useAuthContext } from "src/contexts";
 import { updateProfile, uploadAvatar } from "src/features/users/userServices";
+import { avatarList } from "src/utils";
+
 import * as S from "./styles";
+import * as AS from "src/components/Avatar/styles";
 
 const EditDetails = ({ user, setEditModal }) => {
   const { authToken, authDispatch } = useAuthContext();
@@ -13,6 +16,7 @@ const EditDetails = ({ user, setEditModal }) => {
   const [editUserData, setEditUserData] = useState(user);
 
   const inputHandler = (event) => {
+    event.stopPropagation();
     const { name, value } = event.target;
     setEditUserData((prev) => ({ ...prev, [name]: value }));
   };
@@ -25,18 +29,33 @@ const EditDetails = ({ user, setEditModal }) => {
 
   return (
     <S.EditForm onSubmit={submitEditForm}>
-      <Avatar user={user} size={"md"} />
+      <Avatar user={editUserData} size={"md"} />
       <S.AvatarUploadButton>
         <label htmlFor="avatar_upload">
           <Input
             type="file"
             name="profileAvatar"
             id="avatar_upload"
-            supportedFileExtensions="image/png, image/jpeg, image/jpg"
+            supportedFileExtensions="image/*"
           />
           <Icon icon={faCamera} title="Upload" />
         </label>
       </S.AvatarUploadButton>
+      <S.AvatarPicker>
+        {avatarList.map(({ src, label }) => (
+          <AS.AvatarWrapper key={label}>
+            <AS.AvatarImage
+              src={src}
+              alt={label}
+              aria-label="Avatar"
+              onClick={(e) => {
+                e.stopPropagation();
+                setEditUserData((prev) => ({ ...prev, profileAvatar: src }));
+              }}
+            />
+          </AS.AvatarWrapper>
+        ))}
+      </S.AvatarPicker>
       <S.Container>
         <S.InputGroup>
           <label htmlFor="fullName" aria-label="Name">

@@ -21,6 +21,12 @@ const AvatarUploadButton = styled.div`
      }
 `;
 
+const AvatarPicker = styled.div`
+    ${FLEX("flex", "flex-start", "center", null, "wrap")};
+    gap: 1rem;
+    padding: 0.625rem;
+`;
+
 const Container = styled.div`
     ${FLEX("flex", "flex-start", "center", "column")};
     margin-top: 0.625rem;
@@ -33,4 +39,4 @@ const InputGroup = styled.div`
     color: ${({ theme }) => theme.font.primary};
 `;
 
-export { EditForm, AvatarUploadButton, Container, InputGroup };
+export { EditForm, AvatarUploadButton, AvatarPicker, Container, InputGroup };
