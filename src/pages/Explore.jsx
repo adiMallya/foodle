@@ -11,7 +11,7 @@ function Explore() {
 
   useEffect(() => {
     getAllPosts(postDispatch);
-  }, [postDispatch]);
+  }, [posts]);
 
   return (
     <PageLayout>

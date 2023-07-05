@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Dropdown, DropdownOption, Modal } from "src/components/atoms";
 import { useAuthContext, usePostContext, useUserContext } from "src/contexts";
 import { deletePost, CreatePost } from "src/features/posts";
-import { followUser, unfollowUser, getAllUsers } from "src/features/users";
+import { followUser, unfollowUser } from "src/features/users";
 
 const PostOptions = ({ postId }) => {
   const { authToken, authUser } = useAuthContext();
@@ -34,11 +34,9 @@ const PostOptions = ({ postId }) => {
         return;
       case "Follow":
         followUser(postUser?._id, authToken, userDispatch);
-        getAllUsers(userDispatch);
         return;
       case "Unfollow":
         unfollowUser(postUser?._id, authToken, userDispatch);
-        getAllUsers(userDispatch);
         return;
       default:
         return;
