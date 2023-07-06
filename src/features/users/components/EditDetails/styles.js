@@ -25,6 +25,10 @@ const AvatarPicker = styled.div`
     ${FLEX("flex", "flex-start", "center", null, "wrap")};
     gap: 1rem;
     padding: 0.625rem;
+
+    span:hover{
+        border: 2px solid ${({ theme }) => theme.color.primary};
+    }
 `;
 
 const Container = styled.div`
