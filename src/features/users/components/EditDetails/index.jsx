@@ -2,7 +2,7 @@ import { useState } from "react";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import { Input, Icon, Button } from "src/components/atoms";
 import { Avatar } from "src/components";
-import { useUserContext, useAuthContext } from "src/contexts";
+import { useAuthContext } from "src/contexts";
 import { updateProfile, uploadAvatar } from "src/features/users/userServices";
 import { avatarList } from "src/utils";
 
@@ -11,9 +11,9 @@ import * as AS from "src/components/Avatar/styles";
 
 const EditDetails = ({ user, setEditModal }) => {
   const { authToken, authDispatch } = useAuthContext();
-  const { users, userDispatch } = useUserContext();
 
   const [editUserData, setEditUserData] = useState(user);
+  const [avatarImg, setAvatarImg] = useState(null);
 
   const inputHandler = (event) => {
     event.stopPropagation();
@@ -21,15 +21,31 @@ const EditDetails = ({ user, setEditModal }) => {
     setEditUserData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const submitEditForm = (event) => {
+  const submitEditForm = async (event) => {
     event.preventDefault();
-    updateProfile(authToken, editUserData, authDispatch);
+    if (avatarImg) {
+      const profileAvatar = await uploadAvatar(avatarImg);
+      updateProfile(
+        authToken,
+        { ...editUserData, profileAvatar },
+        authDispatch
+      );
+    } else {
+      updateProfile(authToken, editUserData, authDispatch);
+    }
     setEditModal(false);
   };
 
   return (
     <S.EditForm onSubmit={submitEditForm}>
-      <Avatar user={editUserData} size={"md"} />
+      <Avatar
+        user={
+          avatarImg
+            ? { ...editUserData, profileAvatar: URL.createObjectURL(avatarImg) }
+            : editUserData
+        }
+        size={"md"}
+      />
       <S.AvatarUploadButton>
         <label htmlFor="avatar_upload">
           <Input
@@ -37,6 +53,10 @@ const EditDetails = ({ user, setEditModal }) => {
             name="profileAvatar"
             id="avatar_upload"
             supportedFileExtensions="image/*"
+            onChange={(e) => {
+              e.stopPropagation();
+              setAvatarImg(e.target.files[0]);
+            }}
           />
           <Icon icon={faCamera} title="Upload" />
         </label>
@@ -64,7 +84,7 @@ const EditDetails = ({ user, setEditModal }) => {
           <Input
             name="fullName"
             id="fullName"
-            value={`${user.firstName} ${user.lastName}`}
+            value={`${editUserData.firstName} ${editUserData.lastName}`}
             aria-readonly="true"
             readOnly
           />
@@ -76,7 +96,7 @@ const EditDetails = ({ user, setEditModal }) => {
           <Input
             name="username"
             id="username"
-            value={`${user.username}`}
+            value={`${editUserData.username}`}
             aria-readonly="true"
             readOnly
           />
