@@ -22,20 +22,18 @@ function Home() {
     getAllPosts(postDispatch);
   }, [users, posts]);
 
-  const currentUser = users?.find(
-    (user) => user.username === authUser.username
-  );
+  const currentUser = users.find((user) => user.username === authUser.username);
 
   const followingUsers = currentUser?.following;
 
   const postsOfFollowingUsers = posts?.filter((post) =>
-    followingUsers.some(
+    followingUsers?.some(
       (followingUser) => followingUser.username === post.username
     )
   );
 
   const postsOfCurrentUser = posts?.filter(
-    (post) => post?.username === currentUser.username
+    (post) => post?.username === currentUser?.username
   );
 
   const userFeed = [...postsOfFollowingUsers, ...postsOfCurrentUser];
