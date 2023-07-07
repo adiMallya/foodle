@@ -12,7 +12,10 @@ const PostProvider = ({ children }) => {
     getAllPosts(dispatch);
   }, []);
 
-  if (state?.error) toast.error(state?.error);
+  useEffect(() => {
+    if (state?.error) toast.error(state?.error);
+    return () => dispatch({ type: ACTIONS.SET_ERROR, payload: null });
+  }, [state?.error]);
 
   return (
     <PostContext.Provider value={{ ...state, postDispatch: dispatch }}>

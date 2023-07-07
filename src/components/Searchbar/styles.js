@@ -3,7 +3,7 @@ import { Input } from "src/components/atoms";
 
 const Wrapper = styled.div`
     z-index: ${({ theme }) => theme.z[6]};
-    position: sticky;
+    position: fixed;
 `;
 
 const SearchInput = styled(Input)`

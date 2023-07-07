@@ -11,9 +11,10 @@ const BaseInputContainer = styled.div`
     opacity: 0.5;
   `};
 
-  &:focus-within{
+  input:not(:read-only):focus-within{
     border: 1px solid ${({ theme }) => theme.border.solid};
   }
+  
 `;
 
 const BaseInputLabel = styled.label`
@@ -48,7 +49,7 @@ const BaseInput = styled.input`
     }
   }
 
-  &:disabled {
+  &:disabled, &:read-only {
     cursor: not-allowed;
   }
 `;

@@ -13,7 +13,7 @@ function Saved() {
 
   useEffect(() => {
     getSavedPosts(authToken, userDispatch);
-  }, [userDispatch, authToken]);
+  }, [authToken, bookmarks]);
 
   return (
     <PageLayout>

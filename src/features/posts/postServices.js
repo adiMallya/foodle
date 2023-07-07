@@ -11,7 +11,7 @@ const getAllPosts = async (postDispatch) => {
         }
     } catch ({ response }) {
         postDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
-        console.error(response.data);
+        console.error(response.data?.errors);
     }
 };
 
@@ -23,7 +23,7 @@ const getSinglePost = async (postId, postDispatch) => {
         }
     } catch ({ response }) {
         postDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
-        console.error(response.data);
+        console.error(response.data?.errors);
     }
 };
 
@@ -42,7 +42,7 @@ const createPost = async (encodedToken, postData, postDispatch) => {
         }
     } catch ({ response }) {
         postDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
-        console.error(response.data);
+        console.error(response.data?.errors);
     }
 };
 
@@ -62,7 +62,7 @@ const editPost = async (encodedToken, postId, postData, postDispatch) => {
         }
     } catch ({ response }) {
         postDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
-        console.error(response.data);
+        console.error(response.data?.errors);
     }
 };
 
@@ -81,7 +81,7 @@ const deletePost = async (encodedToken, postId, postDispatch) => {
         }
     } catch ({ response }) {
         postDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
-        console.error(response.data);
+        console.error(response.data?.errors);
     }
 };
 
@@ -100,7 +100,7 @@ const likePost = async (encodedToken, postId, postDispatch) => {
         }
     } catch ({ response }) {
         postDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
-        console.error(response.data);
+        console.error(response.data?.errors);
     }
 };
 
@@ -119,7 +119,7 @@ const dislikePost = async (encodedToken, postId, postDispatch) => {
         }
     } catch ({ response }) {
         postDispatch({ type: ACTIONS.SET_ERROR, payload: response.data?.errors });
-        console.error(response.data);
+        console.error(response.data?.errors);
     }
 };
 // Cloudinary media upload

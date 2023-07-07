@@ -5,20 +5,21 @@ import { Toaster } from "react-hot-toast";
 
 import { LoginForm, SignUpForm, PrivateRoute } from "src/features/auth";
 import { PostDetail } from "src/features/posts";
-import { Home, Saved, Explore } from "src/pages";
+import { Home, Saved, Explore, UserProfile } from "src/pages";
 import { GlobalStyles, theme } from "src/styles";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="bottom-right" reverseOrder={false} />
       <Routes>
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/post/:postId" element={<PostDetail />} />
+          <Route path="/profile/:userName" element={<UserProfile />} />
         </Route>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SignUpForm />} />

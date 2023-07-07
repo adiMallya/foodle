@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { PageLayout, Loader } from "src/components";
 import { CreatePost, PostCard, Sort, getAllPosts } from "src/features/posts";
+import { getAllUsers } from "src/features/users";
 import { usePostContext, useAuthContext, useUserContext } from "src/contexts";
 import { sortByType } from "src/utils";
 
@@ -17,9 +18,9 @@ function Home() {
   } = usePostContext();
 
   useEffect(() => {
-    // getAllUsers(userDispatch);
+    getAllUsers(userDispatch);
     getAllPosts(postDispatch);
-  }, [postDispatch]);
+  }, [users, posts]);
 
   const currentUser = users?.find(
     (user) => user.username === authUser.username
@@ -34,7 +35,7 @@ function Home() {
   );
 
   const postsOfCurrentUser = posts?.filter(
-    (post) => post?.username === currentUser?.username
+    (post) => post?.username === currentUser.username
   );
 
   const userFeed = [...postsOfFollowingUsers, ...postsOfCurrentUser];

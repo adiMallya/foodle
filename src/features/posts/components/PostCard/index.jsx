@@ -91,12 +91,16 @@ const PostCard = ({ post }) => {
             {showDropdown && <PostOptions postId={_id} />}
           </S.MoreOptions>
         </S.PostHeader>
-        <S.PostContent onClick={() => navigate(`/post/${username}`)}>
+        <S.PostContent onClick={() => navigate(`/post/${_id}`)}>
           {content}
         </S.PostContent>
         {mediaURL ? (
           <S.PostMedia>
-            <img src={mediaURL} alt={`post_${_id}`} />
+            <img
+              src={mediaURL}
+              alt={`post_${_id}`}
+              onClick={() => navigate(`/post/${_id}`)}
+            />
           </S.PostMedia>
         ) : null}
         <S.UserActions>

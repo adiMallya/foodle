@@ -10,11 +10,20 @@ const ModalWrapper = styled.div`
   ${FLEX("flex", "center", "center")};
 `;
 
+const ModalHeader = styled.div`
+  ${FLEX("flex", null, "flex-end")};
+  font-size: ${({ theme }) => theme.font.md};
+  color: ${({ theme }) => theme.font.primary};
+`;
+
 const ModalContent = styled.div`
-    min-width: 30rem;
+    min-width: 24rem;
     max-height: fit-content;
+    padding: 0.625rem;
+    border: 1px solid ${({ theme }) => theme.border.solid};
     border-radius: ${({ theme }) => theme.border.roundedMd};
+    background-color: ${({ theme }) => theme.bgColor.secondary};
     user-select: none;
 `;
 
-export { ModalWrapper, ModalContent };
+export { ModalWrapper, ModalContent, ModalHeader };

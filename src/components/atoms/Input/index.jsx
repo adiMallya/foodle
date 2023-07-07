@@ -26,6 +26,7 @@ const Input = ({
   id,
   inputMode = "text",
   showError = false,
+  readOnly,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -52,6 +53,7 @@ const Input = ({
         min={min}
         defaultValue={defaultValue}
         inputMode={inputMode}
+        readOnly={readOnly}
       />
       {showVisibility ? (
         <S.BaseInputPasswordVisibility>
