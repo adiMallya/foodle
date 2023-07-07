@@ -15,13 +15,13 @@ const UserProfile = () => {
   const { users, userDispatch } = useUserContext();
   const { posts, postDispatch, isLoading } = usePostContext();
 
-  useEffect(() => {
-    getAllUsers(userDispatch);
-    getAllPosts(postDispatch);
-  }, [userName, users, posts]);
-
   const currentUser = users?.find((user) => user.username === userName);
   const currentUserPosts = posts?.filter((post) => post.username === userName);
+
+  useEffect(() => {
+    getAllPosts(postDispatch);
+    getAllUsers(userDispatch);
+  }, [userName, users, posts]);
 
   return (
     <PageLayout>
@@ -47,7 +47,7 @@ const UserProfile = () => {
         ) : currentUserPosts?.length ? (
           [...currentUserPosts]
             .reverse()
-            .map((post) => <PostCard key={post?._id} post={post} />)
+            .map((post) => <PostCard key={post._id} post={post} />)
         ) : (
           <S.NoData>
             <p>No Posts</p>

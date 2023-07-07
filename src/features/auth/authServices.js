@@ -32,7 +32,7 @@ const signUpService = async (formData, authDispatch) => {
             ...formData,
             bio: "",
             website: "",
-            profileAvatar: "",
+            profileAvatar: "https://res.cloudinary.com/dtaztriby/image/upload/v1686945718/twizzle-social/avatars/default-avatar-profile-icon-vector-social-media-user-portrait-176256935_okhbl4.jpg",
         });
         if (status === 201) {
             authDispatch({ type: ACTIONS.SET_JWT_TOKEN, payload: encodedToken });

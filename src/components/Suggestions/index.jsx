@@ -12,7 +12,7 @@ const Suggestions = () => {
   const { users, userDispatch } = useUserContext();
 
   const currentUser = users?.find(
-    (user) => user.username === authUser?.username
+    (user) => user.username === authUser.username
   );
 
   const suggestUsers = users
@@ -28,36 +28,40 @@ const Suggestions = () => {
   };
 
   return (
-    <S.Wrapper>
-      <S.ListTitle>You Can Follow</S.ListTitle>
-      {suggestUsers.map((user) => (
-        <S.UserCard key={user?._id}>
-          <Avatar
-            user={user}
-            onClick={(e) => {
-              e.stopPropagation();
-              navigate(`/profile/${user?.username}`);
-            }}
-          />
-          <S.UserDesc>
-            <S.UserFullName>
-              {user?.firstName + " " + user?.lastName}
-            </S.UserFullName>
-            <S.UserName>@{user?.username}</S.UserName>
-          </S.UserDesc>
-          <Button
-            rounded="true"
-            size="sm"
-            onClick={(e) => {
-              e.stopPropagation();
-              followBtnHandler(user?._id);
-            }}
-          >
-            Follow
-          </Button>
-        </S.UserCard>
-      ))}
-    </S.Wrapper>
+    <>
+      {suggestUsers.length ? (
+        <S.Wrapper>
+          <S.ListTitle>You Can Follow</S.ListTitle>
+          {suggestUsers.map((user) => (
+            <S.UserCard key={user?._id}>
+              <Avatar
+                user={user}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate(`/profile/${user?.username}`);
+                }}
+              />
+              <S.UserDesc>
+                <S.UserFullName>
+                  {user?.firstName + " " + user?.lastName}
+                </S.UserFullName>
+                <S.UserName>@{user?.username}</S.UserName>
+              </S.UserDesc>
+              <Button
+                rounded="true"
+                size="sm"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  followBtnHandler(user?._id);
+                }}
+              >
+                Follow
+              </Button>
+            </S.UserCard>
+          ))}
+        </S.Wrapper>
+      ) : null}
+    </>
   );
 };
 
