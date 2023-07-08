@@ -125,7 +125,7 @@ const removeSavedPost = async (postId, encodedToken, userDispatch) => {
     }
 };
 // Cloudinary media upload
-const uploadAvatar = async (media) => {
+const uploadAvatar = async (media, setAvatarURL) => {
     if (Math.round(media.size / 1024000) > 5) {
         toast.error("Image size should be less than 5MB");
     } else {
@@ -139,7 +139,8 @@ const uploadAvatar = async (media) => {
             method: "POST",
             body: formData
         }).then((res) => res.json()).then((json) => {
-            return json.url;
+            setAvatarURL(json.url);
+            return json.secure_url;
         }).catch(error => {
             toast.error("Avatar upload failed.");
             console.error(error);

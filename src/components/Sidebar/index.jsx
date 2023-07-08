@@ -15,8 +15,13 @@ import * as SS from "../Suggestions/styles";
 
 const Sidebar = () => {
   const { authUser } = useAuthContext();
+  const { users } = useUserContext();
 
   const [showModal, setShowModal] = useState(false);
+
+  const currentUser = users?.find(
+    (user) => user.username === authUser.username
+  );
 
   return (
     <S.SidebarContainer>
@@ -59,13 +64,13 @@ const Sidebar = () => {
       </S.NavLinks>
       <S.NavLinks>
         <li>
-          <S.ProfileLink to={`/profile/${authUser?.username}`}>
-            <Avatar user={authUser} />
+          <S.ProfileLink to={`/profile/${currentUser?.username}`}>
+            <Avatar user={currentUser} />
             <S.ProfileDesc>
               <SS.UserFullName>
-                {authUser?.firstName + " " + authUser?.lastName}
+                {currentUser?.firstName + " " + currentUser?.lastName}
               </SS.UserFullName>
-              <SS.UserName>@{authUser?.username}</SS.UserName>
+              <SS.UserName>@{currentUser?.username}</SS.UserName>
             </S.ProfileDesc>
           </S.ProfileLink>
         </li>

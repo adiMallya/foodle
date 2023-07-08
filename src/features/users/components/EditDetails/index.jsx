@@ -21,15 +21,20 @@ const EditDetails = ({ user, setEditModal }) => {
     setEditUserData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const submitEditForm = async (event) => {
+  const onMediaUpload = async (event) => {
+    event.stopPropagation();
+    await uploadAvatar(event.currentTarget.files[0], setAvatarImg);
+  };
+
+  const submitEditForm = (event) => {
     event.preventDefault();
     if (avatarImg) {
-      const profileAvatar = await uploadAvatar(avatarImg);
       updateProfile(
         authToken,
-        { ...editUserData, profileAvatar },
+        { ...editUserData, profileAvatar: avatarImg },
         authDispatch
       );
+      setAvatarImg(null);
     } else {
       updateProfile(authToken, editUserData, authDispatch);
     }
@@ -41,7 +46,7 @@ const EditDetails = ({ user, setEditModal }) => {
       <Avatar
         user={
           avatarImg
-            ? { ...editUserData, profileAvatar: URL.createObjectURL(avatarImg) }
+            ? { ...editUserData, profileAvatar: avatarImg }
             : editUserData
         }
         size={"md"}
@@ -53,10 +58,7 @@ const EditDetails = ({ user, setEditModal }) => {
             name="profileAvatar"
             id="avatar_upload"
             supportedFileExtensions="image/*"
-            onChange={(e) => {
-              e.stopPropagation();
-              setAvatarImg(e.target.files[0]);
-            }}
+            onChange={onMediaUpload}
           />
           <Icon icon={faCamera} title="Upload" />
         </label>

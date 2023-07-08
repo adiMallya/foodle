@@ -33,14 +33,14 @@ const Suggestions = () => {
         <S.Wrapper>
           <S.ListTitle>You Can Follow</S.ListTitle>
           {suggestUsers.map((user) => (
-            <S.UserCard key={user?._id}>
-              <Avatar
-                user={user}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  navigate(`/profile/${user?.username}`);
-                }}
-              />
+            <S.UserCard
+              key={user?._id}
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate(`/profile/${user.username}`);
+              }}
+            >
+              <Avatar user={user} />
               <S.UserDesc>
                 <S.UserFullName>
                   {user?.firstName + " " + user?.lastName}
