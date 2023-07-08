@@ -9,7 +9,6 @@ import * as S from "../authStyle";
 
 function LoginForm() {
   const navigate = useNavigate();
-  const location = useLocation();
   const { authToken, authDispatch, error } = useAuthContext();
 
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -57,6 +56,7 @@ function LoginForm() {
             isAutoFocus={true}
             onFocus={() => authDispatch({ type: ACTIONS.RESET_ERROR })}
             showError={error?.username}
+            value={formData.username}
           />
           <S.FormInput
             placeholder="Enter Password"
@@ -67,19 +67,20 @@ function LoginForm() {
             showVisibility
             onFocus={() => authDispatch({ type: ACTIONS.RESET_ERROR })}
             showError={error?.password}
+            value={formData.password}
           />
-          <Button type="submit" size="lg" fullwidth="true" aria-label="Log In">
+          <Button type="submit" size="md" fullwidth="true" aria-label="Log In">
             Log In
           </Button>
           <Button
-            type="submit"
-            size="lg"
+            type="button"
+            size="md"
             variant="primaryOutline"
             fullwidth="true"
             aria-label="Log In"
             onClick={loginAsGuest}
           >
-            Log In as Guest
+            Fill Test Credentials
           </Button>
         </S.Form>
         <S.FormFooter>
