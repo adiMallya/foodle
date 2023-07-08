@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { Icon, Button } from "src/components/atoms";
+import { Button } from "src/components/atoms";
 import { useClickOutside } from "src/hooks/useClickOutside";
 
 import * as S from "./styles";
@@ -18,7 +18,7 @@ const Modal = (props) => {
         <S.ModalHeader>
           {title ? <span>{title}</span> : null}
           <Button variant="icon" onClick={closeModal}>
-            <Icon icon={faXmark} title="Close" />
+            <S.CloseIcon icon={faXmark} title="Close" />
           </Button>
         </S.ModalHeader>
         {children}

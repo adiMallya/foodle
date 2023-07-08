@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { FLEX } from "src/styles";
+import { Icon } from "../Icon";
 
 const ModalWrapper = styled.div`
   position: fixed;
@@ -11,7 +12,7 @@ const ModalWrapper = styled.div`
 `;
 
 const ModalHeader = styled.div`
-  ${FLEX("flex", null, "flex-end")};
+  ${FLEX("flex", null, "space-between")};
   font-size: ${({ theme }) => theme.font.md};
   color: ${({ theme }) => theme.font.primary};
 `;
@@ -26,4 +27,9 @@ const ModalContent = styled.div`
     user-select: none;
 `;
 
-export { ModalWrapper, ModalContent, ModalHeader };
+const CloseIcon = styled(Icon)`
+  color: ${({ theme }) => theme.font.primary};
+  font-size: ${({ theme }) => theme.font.md};
+`;
+
+export { ModalWrapper, ModalContent, ModalHeader, CloseIcon };
