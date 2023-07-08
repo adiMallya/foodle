@@ -12,16 +12,12 @@ import {
   unfollowUser,
   getAllUsers,
   EditDetails,
+  FollowList,
 } from "src/features/users";
 
 import * as S from "./styles";
 
 const UserDetails = ({ currentUser }) => {
-  const { authToken, authUser, authDispatch } = useAuthContext();
-  const { userDispatch } = useUserContext();
-
-  const [editModal, setEditModal] = useState(false);
-
   const {
     _id,
     username,
@@ -32,6 +28,16 @@ const UserDetails = ({ currentUser }) => {
     following,
     followers,
   } = currentUser;
+
+  const [editModal, setEditModal] = useState(false);
+  const [followModal, setFollowModal] = useState({
+    show: false,
+    type: "Following",
+    list: following,
+  });
+
+  const { authToken, authUser, authDispatch } = useAuthContext();
+  const { userDispatch } = useUserContext();
 
   const alreadyFollowingUser = currentUser?.followers?.some(
     (user) => user.username === authUser.username
@@ -86,11 +92,31 @@ const UserDetails = ({ currentUser }) => {
             </S.UserBio>
           )}
           <S.UserPresence>
-            <div aria-label="Following">
+            <div
+              aria-label="Following"
+              onClick={() =>
+                setFollowModal((prev) => ({
+                  ...prev,
+                  show: true,
+                  type: "Following",
+                  list: following,
+                }))
+              }
+            >
               <span>{following.length}</span>
               <span>Following</span>
             </div>
-            <div aria-label="Followers">
+            <div
+              aria-label="Followers"
+              onClick={() =>
+                setFollowModal((prev) => ({
+                  ...prev,
+                  show: true,
+                  type: "Followers",
+                  list: followers,
+                }))
+              }
+            >
               <span>{followers.length}</span>
               <span>Followers</span>
             </div>
@@ -117,6 +143,13 @@ const UserDetails = ({ currentUser }) => {
       </S.ProfileSection>
       <Modal showModal={editModal} closeModal={() => setEditModal(false)}>
         <EditDetails user={currentUser} setEditModal={setEditModal} />
+      </Modal>
+      <Modal
+        showModal={followModal.show}
+        closeModal={() => setFollowModal((prev) => ({ ...prev, show: false }))}
+        title={followModal.type}
+      >
+        <FollowList followModal={followModal} setFollowModal={setFollowModal} />
       </Modal>
     </S.ProfileWrapper>
   );
