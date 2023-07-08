@@ -19,7 +19,7 @@ const PostContent = styled.form`
 
 const TextArea = styled.textarea`
     width: 100%;
-    max-height: 6rem;
+    height: fit-content;
     padding: 0.25rem;
 
     background-color: inherit;
