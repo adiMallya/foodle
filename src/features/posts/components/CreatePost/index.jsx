@@ -16,13 +16,13 @@ const CreatePost = ({ editPostData, setShowModal }) => {
   const [content, setContent] = useState(
     editPostData ? editPostData?.content : ""
   );
-  const [mediaURL, setMediaURL] = useState("");
+  const [mediaURL, setMediaURL] = useState(editPostData?.mediaURL);
 
   const createPostRef = useRef();
 
   const onMediaUpload = async (event) => {
-    event.preventDefault();
-    await uploadMedia(event.target.files[0], setMediaURL);
+    event.stopPropagation();
+    await uploadMedia(event.currentTarget.files[0], setMediaURL);
   };
 
   const onPostSubmit = (event) => {
@@ -35,7 +35,7 @@ const CreatePost = ({ editPostData, setShowModal }) => {
       postData = { content, mediaURL };
       createPost(authToken, postData, postDispatch);
       setContent("");
-      setMediaURL("");
+      setMediaURL(null);
       createPostRef.current.value = "";
     }
 
