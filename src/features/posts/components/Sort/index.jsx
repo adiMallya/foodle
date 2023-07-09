@@ -28,7 +28,7 @@ const Sort = () => {
 
   return (
     <S.SortContainer>
-      <span aria-label="Sort Type">{sortBy} Yums</span>
+      <span aria-label="Sort Type">{sortBy}</span>
       <S.SortBar ref={dropdownRef}>
         <Button
           variant="icon"
