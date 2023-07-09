@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-
-import { PageLayout, Loader } from "src/components";
+import { Loader } from "src/components/atoms";
+import { PageLayout } from "src/components";
 import { PostCard } from "src/features/posts";
 import { getSavedPosts } from "src/features/users";
 import { useAuthContext, useUserContext } from "src/contexts";
