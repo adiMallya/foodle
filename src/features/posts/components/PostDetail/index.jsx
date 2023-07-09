@@ -2,8 +2,8 @@ import { useEffect } from "react";
 
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useParams } from "react-router-dom";
-import { Icon, Button } from "src/components/atoms";
-import { PageLayout, Loader } from "src/components";
+import { Icon, Button, Loader } from "src/components/atoms";
+import { PageLayout } from "src/components";
 import { usePostContext } from "src/contexts";
 import { ACTIONS } from "src/utils";
 import { getSinglePost, PostCard, CommentCard } from "src/features/posts";
@@ -17,6 +17,8 @@ function PostDetail() {
   const { singlePost, postDispatch, isLoading } = usePostContext();
 
   useEffect(() => {
+    postDispatch({ type: ACTIONS.SET_LOADING, payload: true });
+
     getSinglePost(postId, postDispatch);
     return () => postDispatch({ type: ACTIONS.SET_SINGLE_POST, payload: {} });
   }, [postId, postDispatch]);
@@ -39,15 +41,17 @@ function PostDetail() {
           {isLoading ? (
             <Loader />
           ) : (
-            singlePost?._id && (
-              <PostCard key={singlePost?._id} post={singlePost} />
-            )
+            <>
+              {singlePost?._id && (
+                <PostCard key={singlePost?._id} post={singlePost} />
+              )}
+              {singlePost?.comments?.length &&
+                [...singlePost.comments].map((comment) => (
+                  <CommentCard key={comment?._id} comment={comment} />
+                ))}
+            </>
           )}
         </div>
-        {singlePost?.comments?.length &&
-          [...singlePost.comments].map((comment) => (
-            <CommentCard key={comment?._id} comment={comment} />
-          ))}
       </Wrapper>
     </PageLayout>
   );
