@@ -142,17 +142,10 @@ const PostCard = ({ post }) => {
               <Button
                 variant="icon"
                 size="sm"
-                aria-label="Save"
-                onClick={saveBtnHandler}
+                aria-label="Share"
+                onClick={shareBtnHandler}
               >
-                <S.BookmarkIcon
-                  icon={
-                    isSavedByUser(bookmarks, currentPost._id)
-                      ? filledBookmark
-                      : regularBookmark
-                  }
-                  title="Save"
-                />
+                <S.ShareIcon icon={faShare} title="Share" />
               </Button>
             </div>
           </div>
@@ -160,10 +153,17 @@ const PostCard = ({ post }) => {
             <Button
               variant="icon"
               size="sm"
-              aria-label="Share"
-              onClick={shareBtnHandler}
+              aria-label="Save"
+              onClick={saveBtnHandler}
             >
-              <S.BookmarkIcon icon={faShare} title="Share" />
+              <S.BookmarkIcon
+                icon={
+                  isSavedByUser(bookmarks, currentPost._id)
+                    ? filledBookmark
+                    : regularBookmark
+                }
+                title="Save"
+              />
             </Button>
           </div>
         </S.UserActions>

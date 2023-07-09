@@ -8,6 +8,8 @@ const PostContainer = styled.div`
 
     background-color: ${({ theme }) => theme.bgColor.secondary};
     padding: 1.1rem 0.625rem;
+    margin-bottom: 0.625rem;
+    border-radius: ${({ theme }) => theme.border.roundedMd};
 `;
 
 const PostSection = styled.div`
@@ -84,10 +86,14 @@ const BookmarkIcon = styled(Icon)`
     color: ${({ theme }) => theme.color.success};
 `;
 
+const ShareIcon = styled(Icon)`
+    color: #a3e635;
+`;
+
 const MoreOptions = styled.div`
     padding: 0.5rem 1rem;
     font-size: 1em;
     cursor: pointer;
 `;
 
-export { PostContainer, PostSection, PostHeader, PostUser, PostDetails, PostContent, PostMedia, UserActions, LikeIcon, BookmarkIcon, MoreOptions };
+export { PostContainer, PostSection, PostHeader, PostUser, PostDetails, PostContent, PostMedia, UserActions, LikeIcon, BookmarkIcon, ShareIcon, MoreOptions };
