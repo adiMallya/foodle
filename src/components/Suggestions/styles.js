@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { FLEX } from "src/styles";
 
 const Wrapper = styled.div`
-    ${FLEX("flex", "flex-start", null, "column")};
+    ${FLEX("flex", null, null, "column")};
     gap: 1.5rem;
     height: max-content;
     margin-top: 4rem;
@@ -18,7 +18,7 @@ const ListTitle = styled.p`
 `;
 
 const UserCard = styled.div`
-    ${FLEX("flex", "center", "center")};
+    ${FLEX("flex", "center")};
     gap: 1rem;
     width: 100%;
     cursor: pointer;

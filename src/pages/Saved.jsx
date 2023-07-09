@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-
-import { PageLayout, Loader } from "src/components";
+import { Loader } from "src/components/atoms";
+import { PageLayout } from "src/components";
 import { PostCard } from "src/features/posts";
 import { getSavedPosts } from "src/features/users";
 import { useAuthContext, useUserContext } from "src/contexts";
@@ -19,7 +19,7 @@ function Saved() {
     <PageLayout>
       <S.Wrapper>
         <S.Header>
-          <h3>Saved Yums</h3>
+          <h3>Saved</h3>
         </S.Header>
         <div>
           {isLoading ? (
@@ -30,7 +30,7 @@ function Saved() {
               .map((post) => <PostCard key={post?._id} post={post} />)
           ) : (
             <S.NoData>
-              <p>You Have Not Saved Any Post</p>
+              <p>No Posts</p>
             </S.NoData>
           )}
         </div>

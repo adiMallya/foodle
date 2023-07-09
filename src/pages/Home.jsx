@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { PageLayout, Loader } from "src/components";
+import { Loader } from "src/components/atoms";
+import { PageLayout } from "src/components";
 import { CreatePost, PostCard, Sort, getAllPosts } from "src/features/posts";
 import { getAllUsers } from "src/features/users";
 import { usePostContext, useAuthContext, useUserContext } from "src/contexts";
@@ -9,11 +10,11 @@ import * as S from "./styles";
 
 function Home() {
   const { authUser } = useAuthContext();
-  const { users, isLoading: waitingForUsers, userDispatch } = useUserContext();
+  const { users, isLoading: waitForUsers, userDispatch } = useUserContext();
   const {
     posts,
     sortBy,
-    isLoading: waitingForPosts,
+    isLoading: waitForPosts,
     postDispatch,
   } = usePostContext();
 
@@ -44,13 +45,13 @@ function Home() {
     <PageLayout>
       <S.Wrapper>
         <S.Header>
-          <h3>My Feed</h3>
+          <h3>Feed</h3>
         </S.Header>
         <CreatePost />
         <Sort />
         <div>
-          {waitingForPosts || waitingForUsers ? (
-            <Loader />
+          {waitForPosts || waitForUsers ? (
+            <Loader loading={waitForPosts || waitForUsers} />
           ) : sortedPosts?.length ? (
             [...sortedPosts]
               .reverse()

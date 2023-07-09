@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
-import { Input, Icon, Button } from "src/components/atoms";
+import { Input, Icon, Button, Loader } from "src/components/atoms";
 import { Avatar } from "src/components";
 import { useAuthContext } from "src/contexts";
 import { updateProfile, uploadAvatar } from "src/features/users/userServices";
@@ -13,7 +13,7 @@ const EditDetails = ({ user, setEditModal }) => {
   const { authToken, authDispatch } = useAuthContext();
 
   const [editUserData, setEditUserData] = useState(user);
-  const [avatarImg, setAvatarImg] = useState(null);
+  const [avatarImg, setAvatarImg] = useState({ imgURL: null, loading: false });
 
   const inputHandler = (event) => {
     event.stopPropagation();
@@ -22,19 +22,20 @@ const EditDetails = ({ user, setEditModal }) => {
   };
 
   const onMediaUpload = async (event) => {
+    setAvatarImg((prev) => ({ ...prev, loading: true }));
     event.stopPropagation();
     await uploadAvatar(event.currentTarget.files[0], setAvatarImg);
   };
 
   const submitEditForm = (event) => {
     event.preventDefault();
-    if (avatarImg) {
+    if (avatarImg.imgURL) {
       updateProfile(
         authToken,
-        { ...editUserData, profileAvatar: avatarImg },
+        { ...editUserData, profileAvatar: avatarImg.imgURL },
         authDispatch
       );
-      setAvatarImg(null);
+      setAvatarImg((prev) => ({ ...prev, imgURL: null, loading: false }));
     } else {
       updateProfile(authToken, editUserData, authDispatch);
     }
@@ -45,8 +46,8 @@ const EditDetails = ({ user, setEditModal }) => {
     <S.EditForm onSubmit={submitEditForm}>
       <Avatar
         user={
-          avatarImg
-            ? { ...editUserData, profileAvatar: avatarImg }
+          avatarImg.imgURL
+            ? { ...editUserData, profileAvatar: avatarImg.imgURL }
             : editUserData
         }
         size={"md"}
@@ -60,7 +61,11 @@ const EditDetails = ({ user, setEditModal }) => {
             supportedFileExtensions="image/*"
             onChange={onMediaUpload}
           />
-          <Icon icon={faCamera} title="Upload" />
+          {avatarImg.loading ? (
+            <Loader type="beats" size="5" />
+          ) : (
+            <Icon icon={faCamera} title="Upload" />
+          )}
         </label>
       </S.AvatarUploadButton>
       <S.AvatarPicker>

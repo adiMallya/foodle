@@ -27,7 +27,7 @@ const Sidebar = () => {
     <S.SidebarContainer>
       <S.NavLinks>
         <S.Brand>
-          <S.NavPill>Yumspot</S.NavPill>
+          <S.NavPill>foodle</S.NavPill>
         </S.Brand>
         <li>
           <S.Navlink

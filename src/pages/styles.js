@@ -6,15 +6,12 @@ const Wrapper = styled.div`
 
     width: 100%;
     height: 100%;
-
-    border-left: 0.3px solid ${({ theme }) => theme.border.solid};
-    border-right: 0.3px solid ${({ theme }) => theme.border.solid};
 `;
 
 const Header = styled.div`
     ${({ align }) => align === 'left' ? FLEX("flex", "center", "flex-start") : FLEX("flex", "center", "center")};
     padding: 1rem 0.625rem;
-    border: 0.3px solid ${({ theme }) => theme.border.solid};
+    border: 1px solid ${({ theme }) => theme.border.solid};
     
     position: sticky;
     top: 0;
@@ -26,7 +23,7 @@ const Header = styled.div`
     opacity: 0.9;
 
     font-weight: ${({ theme }) => theme.font.semibold};
-    font-family: 'Lucida Sans', sans-serif;
+    font-family: sans-serif;
     color: ${({ theme }) => theme.font.primary};
 `;
 

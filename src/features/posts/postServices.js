@@ -145,7 +145,7 @@ const uploadMedia = async (media, setMediaURL) => {
             method: "POST",
             body: formData
         }).then((res) => res.json()).then((json) => {
-            setMediaURL(json.url);
+            setMediaURL({ imgURL: json.url, loading: false });
             return json.secure_url;
         }).catch(error => {
             toast.error("Media upload failed.");
