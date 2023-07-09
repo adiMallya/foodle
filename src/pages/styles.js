@@ -26,7 +26,7 @@ const Header = styled.div`
     opacity: 0.9;
 
     font-weight: ${({ theme }) => theme.font.semibold};
-    font-family: 'Lucida Sans', sans-serif;
+    font-family: sans-serif;
     color: ${({ theme }) => theme.font.primary};
 `;
 

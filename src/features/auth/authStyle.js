@@ -19,8 +19,7 @@ const FormWrapper = styled.div`
 const FormHeader = styled.div`
     ${FLEX("flex", "center", "center", "column")}
     > h1{
-        font-family: system-ui;
-        font-style: italic;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: ${({ theme }) => theme.color.primary}
     }
     > p {

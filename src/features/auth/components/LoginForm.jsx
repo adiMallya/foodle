@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Button } from "src/components/atoms";
 import { useAuthContext } from "src/contexts";
@@ -44,7 +44,7 @@ function LoginForm() {
     <div style={{ display: "flex" }}>
       <S.FormWrapper>
         <S.FormHeader>
-          <h1 aria-label="Yumspot">Yumspot!</h1>
+          <h1 aria-label="Yumspot">foodle</h1>
           <p aria-label="slogan">Spotlighting yum, one post at a time</p>
         </S.FormHeader>
         <S.Form onSubmit={loginHandler}>

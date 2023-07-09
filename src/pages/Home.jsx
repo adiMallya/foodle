@@ -44,7 +44,7 @@ function Home() {
     <PageLayout>
       <S.Wrapper>
         <S.Header>
-          <h3>My Feed</h3>
+          <h3>Feed</h3>
         </S.Header>
         <CreatePost />
         <Sort />
