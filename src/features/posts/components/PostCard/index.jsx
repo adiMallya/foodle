@@ -55,7 +55,7 @@ const PostCard = ({ post }) => {
   const shareBtnHandler = (event) => {
     event.stopPropagation();
     navigator.clipboard.writeText(
-      `https://yumspot.vercel.app/post/${currentPost?._id}`
+      `https://foodle-adi.vercel.app/post/${currentPost?._id}`
     );
     toast.success("Link Copied. Start Sharing!", {
       iconTheme: { color: "#f59e0b" },
