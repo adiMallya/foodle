@@ -4,7 +4,7 @@ import { faImage } from "@fortawesome/free-regular-svg-icons";
 import { usePostContext, useAuthContext } from "src/contexts";
 import { createPost, editPost, uploadMedia } from "src/features/posts";
 import { Avatar } from "src/components";
-import { Button, Icon, Input } from "src/components/atoms";
+import { Button, Icon, Input, Loader } from "src/components/atoms";
 
 import * as S from "./styles";
 import * as PCS from "../PostCard/styles";
@@ -16,26 +16,38 @@ const CreatePost = ({ editPostData, setShowModal }) => {
   const [content, setContent] = useState(
     editPostData ? editPostData?.content : ""
   );
-  const [mediaURL, setMediaURL] = useState(editPostData?.mediaURL);
+  const [postMedia, setPostMedia] = useState({
+    imgURL: editPostData?.mediaURL,
+    loading: false,
+  });
 
   const createPostRef = useRef();
 
   const onMediaUpload = async (event) => {
+    setPostMedia((prev) => ({ ...prev, loading: true }));
     event.stopPropagation();
-    await uploadMedia(event.currentTarget.files[0], setMediaURL);
+    await uploadMedia(event.currentTarget.files[0], setPostMedia);
   };
 
-  const onPostSubmit = (event) => {
+  const submitPostForm = (event) => {
     event.preventDefault();
     let postData = {};
+
     if (editPostData) {
-      postData = { ...editPostData, content, mediaURL };
+      postData = { ...editPostData, content };
+      if (postMedia?.imgURL) {
+        postData = { ...postData, mediaURL: postMedia.imgURL };
+      }
       editPost(authToken, editPostData?._id, postData, postDispatch);
+      setPostMedia((prev) => ({ ...prev, imgURL: null, loading: false }));
     } else {
-      postData = { content, mediaURL };
+      postData = { content, mediaURL: "" };
+      if (postMedia?.imgURL) {
+        postData = { ...postData, mediaURL: postMedia.imgURL };
+      }
       createPost(authToken, postData, postDispatch);
       setContent("");
-      setMediaURL(null);
+      setPostMedia((prev) => ({ ...prev, imgURL: null, loading: false }));
       createPostRef.current.value = "";
     }
 
@@ -47,7 +59,7 @@ const CreatePost = ({ editPostData, setShowModal }) => {
       <PCS.PostUser>
         <Avatar user={authUser} />
       </PCS.PostUser>
-      <S.PostContent onSubmit={onPostSubmit}>
+      <S.PostContent onSubmit={submitPostForm}>
         <S.TextArea
           ref={createPostRef}
           name="post_content"
@@ -58,16 +70,17 @@ const CreatePost = ({ editPostData, setShowModal }) => {
             setContent(e.target.value);
           }}
         ></S.TextArea>
-        {mediaURL ? (
+        <Loader loading={postMedia.loading} type="beats" />
+        {postMedia.imgURL ? (
           <S.PostMedia>
-            <img src={mediaURL} alt={`post_media`} />
+            <img src={postMedia.imgURL} alt={`post_media`} />
             <S.RemoveButton
               variant="icon"
               size="sm"
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                setMediaURL("");
+                setPostMedia((prev) => ({ ...prev, imgURL: null }));
               }}
             >
               <Icon icon={faCircleXmark} title="Delete" />
@@ -88,13 +101,13 @@ const CreatePost = ({ editPostData, setShowModal }) => {
           </S.MediaUploadButton>
           <div style={{ display: "flex", gap: "1rem" }}>
             <S.CharCount aria-label="Characters">
-              <span>{content?.length}</span>/ 160{" "}
+              <span>{content?.length}</span>/ 160
             </S.CharCount>
             <Button
               size="sm"
               rounded="true"
               type="submit"
-              disabled={!content.trim() && !mediaURL}
+              disabled={!content.trim() && !postMedia.imgURL}
             >
               {editPostData ? "Update" : "Post"}
             </Button>

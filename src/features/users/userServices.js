@@ -139,7 +139,7 @@ const uploadAvatar = async (media, setAvatarURL) => {
             method: "POST",
             body: formData
         }).then((res) => res.json()).then((json) => {
-            setAvatarURL(json.url);
+            setAvatarURL({ imgURL: json.url, loading: false });
             return json.secure_url;
         }).catch(error => {
             toast.error("Avatar upload failed.");
