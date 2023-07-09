@@ -21,7 +21,6 @@ body {
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: all 0.50s linear;
     background-color: ${({ theme }) => theme.bgColor.primary};
 }
 
