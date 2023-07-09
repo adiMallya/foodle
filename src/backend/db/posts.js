@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
 
 /**
@@ -20,7 +19,7 @@ export const posts = [
     username: "johndoe",
     firstName: "John",
     lastName: "Doe",
-    createdAt: "2022-05-01",
+    createdAt: "2023-05-01",
     updatedAt: formatDate(),
     comments: [
       {
@@ -32,7 +31,7 @@ export const posts = [
         lastName: "Joesph",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686425022/twizzle-social/avatars/fill-364x243_7Cformat-webp_7Cwebpquality-70_cg96lr.webp",
-        createdAt: formatDate(),
+        createdAt: "2023-05-04",
         updatedAt: formatDate(),
         votes: {
           upvotedBy: [],
@@ -48,7 +47,7 @@ export const posts = [
         lastName: "Vo",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/20221023121016-635569a0de3f8345fb573ce3jpeg_kxznr8.webp",
-        createdAt: formatDate(),
+        createdAt: "2023-05-01",
         updatedAt: formatDate(),
         votes: {
           upvotedBy: [],
@@ -73,7 +72,7 @@ export const posts = [
     username: "josephtess",
     firstName: "Tess",
     lastName: "Joseph",
-    createdAt: "2022-05-11",
+    createdAt: "2023-05-11",
     updatedAt: formatDate(),
     comments: [
       {
@@ -85,7 +84,7 @@ export const posts = [
         lastName: "Doe",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/1373242_prl159.jpg",
-        createdAt: "2022-05-11",
+        createdAt: "2023-05-12",
         updatedAt: formatDate(),
         votes: {
           upvotedBy: [],
@@ -117,7 +116,7 @@ export const posts = [
     firstName: "Thong",
     lastName: "Vo",
     comments: [],
-    createdAt: "2022-04-20",
+    createdAt: "2023-04-20",
     updatedAt: formatDate(),
   },
   {
@@ -133,7 +132,7 @@ export const posts = [
     username: "amallya",
     firstName: "Adithya",
     lastName: "Mallya",
-    createdAt: "2022-05-05",
+    createdAt: "2023-03-05",
     updatedAt: formatDate(),
     comments: [
       {
@@ -145,7 +144,7 @@ export const posts = [
         lastName: "Vo",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/20221023121016-635569a0de3f8345fb573ce3jpeg_kxznr8.webp",
-        createdAt: formatDate(),
+        createdAt: "2023-03-07",
         updatedAt: formatDate(),
         votes: {
           upvotedBy: [],
@@ -161,7 +160,7 @@ export const posts = [
         lastName: "Joesph",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686425022/twizzle-social/avatars/fill-364x243_7Cformat-webp_7Cwebpquality-70_cg96lr.webp",
-        createdAt: formatDate(),
+        createdAt: "2023-03-05",
         updatedAt: formatDate(),
         votes: {
           upvotedBy: [],
@@ -183,7 +182,7 @@ export const posts = [
     username: "johndoe",
     firstName: "John",
     lastName: "Doe",
-    createdAt: "2022-05-11",
+    createdAt: "2023-07-01",
     updatedAt: formatDate(),
     comments: [],
   },
@@ -200,7 +199,7 @@ export const posts = [
     username: "josephtess",
     firstName: "Tess",
     lastName: "Joesph",
-    createdAt: "2022-05-09",
+    createdAt: "2023-06-28",
     updatedAt: formatDate(),
     comments: [
       {
@@ -212,7 +211,7 @@ export const posts = [
         lastName: "Vo",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/20221023121016-635569a0de3f8345fb573ce3jpeg_kxznr8.webp",
-        createdAt: formatDate(),
+        createdAt: "2023-06-30",
         updatedAt: formatDate(),
         votes: {
           upvotedBy: [],
@@ -229,7 +228,103 @@ export const posts = [
         lastName: "Mallya",
         profileAvatar:
           "https://res.cloudinary.com/dtaztriby/image/upload/v1686424977/twizzle-social/avatars/drew-hays-Kt8eGw8_S8Y-unsplash-scaled-e1664855431566.jpg_fch6nr.webp",
-        createdAt: formatDate(),
+        createdAt: "2023-06-28",
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ]
+  },
+  {
+    _id: "ALeR4sJg6Q",
+    content:
+      "Chimichuris, BEL road. F**ing BOMB burgers!",
+    mediaURL: "https://res.cloudinary.com/dtaztriby/image/upload/v1688931480/twizzle-social/posts/images/Dominican-Chimichurri-Burgers-3_lfuzqu.jpg",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: []
+    },
+    username: "mellis123",
+    firstName: "Mellis",
+    lastName: "Carpenter",
+    createdAt: "2023-07-10",
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: "mNDu3jZb2A",
+        comment:
+          "I'm going there tomorrow!",
+        username: "vo_thong",
+        firstName: "Thong",
+        lastName: "Vo",
+        profileAvatar:
+          "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/20221023121016-635569a0de3f8345fb573ce3jpeg_kxznr8.webp",
+        createdAt: "2023-07-10",
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+  {
+    _id: "ALeR4sJg6Q",
+    content:
+      "Mohamed Ali road se sheek kebab nahi khaya to kya kiya zindagi main.",
+    mediaURL: "",
+    likes: {
+      likeCount: 1,
+      likedBy: [
+        {
+          _id: "fIHrB5Ny3X",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          profileAvatar:
+            "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/1373242_prl159.jpg",
+        },
+      ],
+      dislikedBy: []
+    },
+    firstName: "Frank",
+    lastName: "Kirby",
+    username: "chirpyfrank",
+    createdAt: "2023-07-04",
+    updatedAt: formatDate(),
+    comments: [
+
+    ],
+  },
+  {
+    _id: "BGeR4sJg2Q",
+    content:
+      "Corner House BEL road. #midnightcravings!",
+    mediaURL: "https://res.cloudinary.com/dtaztriby/image/upload/v1688932406/twizzle-social/posts/images/corner-house-ice-cream_qhcmtb.jpg",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: []
+    },
+    username: "mellis123",
+    firstName: "Mellis",
+    lastName: "Carpenter",
+    createdAt: "2023-07-09",
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: "mNDu3jZb2A",
+        comment:
+          "Sorry but DBC is overrated guys.",
+        username: "vo_thong",
+        firstName: "Thong",
+        lastName: "Vo",
+        profileAvatar:
+          "https://res.cloudinary.com/dtaztriby/image/upload/v1686424976/twizzle-social/avatars/20221023121016-635569a0de3f8345fb573ce3jpeg_kxznr8.webp",
+        createdAt: "2023-07-09",
         updatedAt: formatDate(),
         votes: {
           upvotedBy: [],
