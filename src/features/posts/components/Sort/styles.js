@@ -6,7 +6,8 @@ const SortContainer = styled.div`
     width: 100%;
     margin: 1rem 0;
     padding: 0.625rem 1rem;
-    border: 1px solid ${({ theme }) => theme.border.solid};
+    border: 2px solid ${({ theme }) => theme.border.solid};
+    border-radius: ${({ theme }) => theme.border.roundedLg};
     background-color: ${({ theme }) => theme.bgColor.primary};
 
     span {
