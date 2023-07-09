@@ -30,7 +30,7 @@ const NavLinks = styled.ul`
     margin: 1.5rem auto;
 
     @media ${device.md}{
-        ${FLEX("flex", "center", "space-around", "column")};
+        ${FLEX("flex", "center", null, "column")};
         gap: 2rem;
     }
 `;
@@ -65,7 +65,7 @@ const Brand = styled.li`
     color: ${({ theme }) => theme.color.primary};
     font-size: ${({ theme }) => theme.font.lg};
     font-weight: ${({ theme }) => theme.font.bold};
-    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: none;
     @media ${device.lg}{
         display: inline;
@@ -73,7 +73,7 @@ const Brand = styled.li`
 `;
 
 const ProfileLink = styled(BaseLink)`
-    ${FLEX("flex", "flex-start", "center")};
+    ${FLEX("flex", "flex-start")};
     gap: 1rem;
     width: 100%;
     cursor: pointer;
