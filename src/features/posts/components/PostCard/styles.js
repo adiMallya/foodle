@@ -8,7 +8,7 @@ const PostContainer = styled.div`
 
     background-color: ${({ theme }) => theme.bgColor.secondary};
     padding: 1.1rem 0.625rem;
-    margin-bottom: 0.625rem;
+    margin-bottom: 1rem;
     border-radius: ${({ theme }) => theme.border.roundedMd};
 `;
 
