@@ -4,3 +4,4 @@ export { Icon } from "./Icon";
 export { Input } from "./Input";
 export { Dropdown, DropdownOption } from "./Dropdown";
 export { Modal } from "./Modal";
+export { Loader } from "./Loader";
